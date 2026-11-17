@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>简单工具箱 - 在线工具箱</title>
+<meta name="keywords" content="简单工具箱,在线工具箱,PDF合并,PDF拆分,PDF压缩,PDF转图片,PDF镜像裁剪,数字转大写,键盘键码,摩斯密码,新拟态生成,毛玻璃生成,SVG海浪,SVG压缩,图片压缩,图片颜色替换,表格合并,CSV转Excel,Word排版,二维码生成,二维码批量,二维码美化,收款码三合一,万年历,身份证解析,简繁转换,拼音转换,汇率换算,24点,五子棋,JSON格式化,JSON转SQL,智能待办,时间戳转换,房贷计算">
+<meta name="description" content="简单工具箱：137 个纯浏览器本地处理的在线工具，PDF 合并拆分压缩转换、PDF 镜像裁剪、图片处理与颜色替换、二维码生成美化识别与批量生成、QQ 微信支付宝收款码三合一、Word 排版清理、Excel 与 CSV 互转、表格合并拆分、XML 与 JSON 处理、JSON 扁平化、JSON ⇄ SQL、智能待办、拼音转换、法定退休年龄计算、证件照尺寸、四点透视矫正、轻量文本编辑器、HMAC 签名、CSS 渐变与对比度检测、Token 估算与模型成本、提示词模板与绘图提示词、万年历与身份证解析，全部免费、无需登录、不上传文件。"> 
+<meta property="og:title" content="简单工具箱 - 在线工具箱">
+<meta property="og:description" content="纯浏览器本地处理的在线工具集合，免费、无需登录、文件不上传服务器。">
+<meta property="og:site_name" content="简单工具箱">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.432600.xyz/">
+<link rel="canonical" href="https://tools.432600.xyz/">
+<meta name="theme-color" content="#ffffff">
+<script>
+/* 首屏主题：URL ?theme= > 本地记忆 > 系统偏好。内联执行，避免深色用户看到白屏闪一下。 */
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get('theme');
+    var s = null;
+    try { s = localStorage.getItem('wl_theme'); } catch (e) {}
+    var t = q || s;
+    if (t !== 'dark' && t !== 'light') {
+      t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<!-- ============ 骨架：侧栏 + 内容 ============ -->
+<div class="shell">
+  <aside class="side" id="side" aria-label="工具导航"></aside>
+  <div class="main-col">
+    <!-- 右侧内容区顶部：搜索 -->
+    <div class="content-search" id="topDash"></div>
+    <main class="main" id="app"></main>
+  </div>
+</div>
+
+<!-- ============ 页脚 ============ -->
+<footer class="foot">
+  <div>简单工具箱 · 全部工具在浏览器本地运行，文件不上传服务器</div>
+  <div style="margin-top:6px">
+    <a href="#/">首页</a><span class="foot-dot">·</span>
+    <a href="#/about">关于与隐私</a><span class="foot-dot">·</span>
+    <button type="button" class="foot-link" id="keyHelpBtn">快捷键</button><span class="foot-dot">·</span>
+    <a href="https://432600.xyz/" target="_blank" rel="noopener">简单导航网</a><span class="foot-dot">·</span>
+    <a href="https://github.com/xgnw/tools" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- ============ 窄屏底部导航（参考源站的 tabbar） ============ -->
+<nav class="tabbar" id="tabbar" aria-label="快捷导航">
+  <a href="#/" id="tabHome" class="on">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+    <span>首页</span>
+  </a>
+  <button type="button" id="tabCat">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg>
+    <span>分类</span>
+  </button>
+  <a href="#/about" id="tabAbout">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>
+    <span>关于</span>
+  </a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- 核心逻辑 → 各分类工具 → 启动路由 -->
+<script src="assets/js/core.js"></script>
+<script src="assets/js/tools/office.js"></script>
+<script src="assets/js/tools/pdfx.js"></script>
+<script src="assets/js/tools/image.js"></script>
+<script src="assets/js/tools/sheet.js"></script>
+<script src="assets/js/tools/wordx.js"></script>
+<script src="assets/js/tools/conv.js"></script>
+<script src="assets/js/tools/small.js"></script>
+<script src="assets/js/tools/kit.js"></script>
+<script src="assets/js/tools/play.js"></script>
+<script src="assets/js/tools/payqr.js"></script>
+<script src="assets/js/tools/devx.js"></script>
+<script src="assets/js/tools/lab.js"></script>
+<script src="assets/js/tools/doc.js"></script>
+<script src="assets/js/tools/web.js"></script>
+<script src="assets/js/tools/extra.js"></script>
+<script src="assets/js/tools/data.js"></script>
+<script src="assets/js/tools/ai.js"></script>
+<script src="assets/js/tools/ai2.js"></script>
+<script src="assets/js/tools/piliapp.js"></script>
+<script src="assets/js/tools/quickso.js"></script>
+<script src="assets/js/tools/sourcepack.js"></script>
+<script src="assets/js/tools/wechatcard.js"></script>
+<script src="assets/js/tools/mkblog.js"></script>
+<script src="assets/js/tools/mkblog2.js"></script>
+<script src="assets/js/tools/fun.js"></script>
+<script src="assets/js/tools/retire.js"></script>
+<script src="assets/js/tools/jsonflat.js"></script>
+<script src="assets/js/tools/eyedrop.js"></script>
+<script src="assets/js/tools/idphoto.js"></script>
+<script src="assets/js/tools/perspective.js"></script>
+<script src="assets/js/tools/editor.js"></script>
+<script src="assets/js/tools/todo.js"></script>
+<script src="assets/js/tools/jsonsql.js"></script>
+<script src="assets/js/tools/pinyin.js"></script>
+<script src="assets/js/tools/recolor.js"></script>
+<script src="assets/js/tools/pdfedit.js"></script>
+<script src="assets/js/boot.js"></script>
+</body>
+</html>
+
+
+
+
