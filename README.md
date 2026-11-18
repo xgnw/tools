@@ -2,7 +2,7 @@
 
 > GitHub 仓库：<https://github.com/xgnw/tools>，仓库名为 `tools`；仓库根目录就是本站根目录。
 
-一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：144 个 PDF、图片、文档、表格、开发者、数据、AI 辅助与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：156 个 PDF、图片、文档、表格、开发者、数据、AI 辅助与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
 
 > 主参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。不同批次的工具清单还参考过懒人工具、Ctool、PiliApp 等，完整来源见下方「参考过的源站」。
 
@@ -21,7 +21,7 @@
 | 工具邦 PiliApp | <https://cn.piliapp.com/> | 纯前端小工具清单 | 新代码集中在 `assets/js/tools/piliapp.js` |
 | QuickSO 超级书签 | <https://quickso.cn/supermark.html> | `javascript:` 书签脚本清单 | 改造成可复制 / 拖拽的「超级书签」合集，见 `quickso.js` |
 | MKBlog Tool | <https://tool.mkblog.cn/> | 60 个工具条目 | 逐项比对后接入 8 个，见 `mkblog.js`、`mkblog2.js` |
-| NewKit | <https://www.newkit.site/tools/> | 233 个工具的功能清单与分类方式 | 第一批接入 6 个纯静态工具，见 `jsonschema.js`、`toml.js`、`csvsql.js`、`favicon.js`、`pdfsign.js`、`mdtable.js` |
+| NewKit | <https://www.newkit.site/tools/> | 233 个工具的功能清单与分类方式 | 第一批接入 6 个纯静态工具（`jsonschema.js`、`toml.js`、`csvsql.js`、`favicon.js`、`pdfsign.js`、`mdtable.js`）；第二批 6 个（`wifiqr.js`、`gitdocker.js`、`csslayout.js`、`seo.js`、`mask.js`、`bankcard.js`）；第三批 6 个（`screenshot.js`、`socialcrop.js`、`imgfilter.js`、`httpref.js`、`passstrength.js`、`compound.js`） |
 | BWmelon/qrcode | <https://github.com/BWmelon/qrcode> | 二维码 / 收款码功能点 | 仅参考功能；仓库无 LICENSE 且依赖外部服务，未整包接入 |
 
 另有两个本地参考目录，不是线上站点：
@@ -47,15 +47,15 @@
 | 依赖 | 多个 CDN | 十三个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
 | 热门榜 | 服务端统计 | 用 localStorage 记录本机使用次数 |
 
-## 工具清单（144 个）
+## 工具清单（156 个）
 
 | 分类 | 数量 | 工具 |
 |---|---|---|
 | 办公文档 | 30 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单 |
-| 图片处理 | 19 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器 |
+| 图片处理 | 22 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜 |
 | 文档创作 | 9 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成 |
-| 站长工具 | 47 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器 |
-| 数据驿站 | 12 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器 |
+| 站长工具 | 53 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测 |
+| 数据驿站 | 15 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
 | 休闲娱乐 | 21 | 随机数、UUID / 密码、日期差、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码 |
 
@@ -113,6 +113,18 @@ tools/
 │   │       ├── favicon.js  # Favicon 生成器（PNG + ICO + webmanifest）
 │   │       ├── pdfsign.js  # PDF 签名（手写 / 图片 / 文字）
 │   │       ├── mdtable.js  # Markdown 表格生成器
+│   │       ├── wifiqr.js   # WiFi 二维码（WIFI: 文本格式 + 本地 qrcode.js）
+│   │       ├── gitdocker.js # Git / Docker 命令生成器（只拼接命令，不执行）
+│   │       ├── csslayout.js # CSS Grid / Flexbox 生成器（实时预览 + 复制 CSS）
+│   │       ├── seo.js      # SEO 套件（基础 Meta + Open Graph + Twitter Card）
+│   │       ├── mask.js     # 数据脱敏（邮箱 / 手机 / 身份证 / 银行卡 / IP / 自定义词）
+│   │       ├── bankcard.js # 银行卡校验（Luhn + 卡组织识别 + 校验位）
+│   │       ├── screenshot.js # 截图美化（渐变背景 / 圆角 / 阴影 / 浏览器顶栏）
+│   │       ├── socialcrop.js # 社媒尺寸裁剪（方图 / 小红书 / 竖屏 / 封面）
+│   │       ├── imgfilter.js # 图片滤镜（亮度 / 对比度 / 饱和度 / 灰度 / 模糊）
+│   │       ├── httpref.js   # HTTP 状态码 / MIME / 端口速查
+│   │       ├── passstrength.js # 密码强度检测（长度 / 字符集 / 熵值）
+│   │       ├── compound.js  # 复利计算器（本金 + 每月定投）
 │   │       └── fun.js      # 随机数、UUID/密码、日期差、BMI、星座生肖、世界时钟、吃什么、番茄钟
 │   └── lib/                 # 本地依赖（按需注入 <script>，首屏零加载）
 │       ├── pdf-lib.min.js   # pdf-lib 1.17.1（读写 PDF）
@@ -352,7 +364,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 
 ## 关于 NewKit（newkit.site）的功能对照
 
-参考 [newkit.site/tools](https://www.newkit.site/tools/) 的 233 个工具清单（开发者 94、文档 15、文本 25、图像 33、数据转换 15、加密 10、媒体 10、网络 16、数学 15）做逐项比对。NewKit 有大量工具与本站已有的格式化、二维码、PDF、图片压缩重复，或依赖后端、第三方接口、AI Key、ffmpeg 与代码沙箱；本站只挑选**纯静态、浏览器本地可完成**的能力，第一批按确认清单接入 6 个。
+参考 [newkit.site/tools](https://www.newkit.site/tools/) 的 233 个工具清单（开发者 94、文档 15、文本 25、图像 33、数据转换 15、加密 10、媒体 10、网络 16、数学 15）做逐项比对。NewKit 有大量工具与本站已有的格式化、二维码、PDF、图片压缩重复，或依赖后端、第三方接口、AI Key、ffmpeg 与代码沙箱；本站只挑选**纯静态、浏览器本地可完成**的能力，第一批接入 6 个，第二批再接入 6 个，第三批再接入 6 个，共 18 个。
 
 | 已接入 | 分类 | 实现说明 |
 |---|---|---|
@@ -362,8 +374,20 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | Favicon 生成器 | 图片处理 | Canvas 生成 16~512 PNG，文字 / Emoji / 图片三种来源，圆角 / 圆形 / 方形外形；ICO 用 PNG 条目封装，另打包 `site.webmanifest` 与 PNG 套图 |
 | PDF 签名 | 办公文档 | 复用 pdf-lib，手写（自动裁掉透明留白）、图片、文字三种签名，可选页面与六种位置；仅可视签名，不提供 CA 数字证书或法律电子签章 |
 | Markdown 表格生成器 | 文档创作 | 可视化增删行列、设置左 / 中 / 右对齐，实时生成 Markdown；单元格 `|` 自动转义、换行转 `<br>` |
+| WiFi 二维码 | 站长工具 | 按 Wi-Fi 联盟 `WIFI:T:...;S:...;P:...;;` 格式生成，复用本地 `qrcode.js`，支持隐藏网络、PNG / SVG 下载与内容复制 |
+| Git / Docker 命令生成器 | 站长工具 | Git 与 Docker 双 tab、场景下拉与动态字段，只拼接可复制的命令文本，不执行任何命令 |
+| CSS Grid / Flexbox 生成器 | 站长工具 | 列数 / 行数 / 间距 / 对齐与方向 / 换行实时调节，带网格预览并复制生成的 CSS |
+| SEO 套件 | 站长工具 | 生成 title、description、keywords、canonical、robots、Open Graph、Twitter Card；提示标题 30–60 字、描述 80–160 字，带搜索结果预览 |
+| 数据脱敏 | 数据驿站 | 本地遮罩邮箱、手机号、身份证、银行卡、IPv4 与自定义敏感词，统计命中数量，不存储、不上传 |
+| 银行卡校验 | 数据驿站 | Luhn 校验、常见卡组织识别、格式化卡号与校验位计算；不联网、不验证真实发卡行或余额 |
+| 截图美化 | 图片处理 | Canvas 渐变背景、留白 / 圆角 / 阴影可调，可选浏览器顶栏，导出 PNG |
+| 社媒尺寸裁剪 | 图片处理 | 方图、小红书 4:5、9:16 竖屏、16:9 封面、公众号首图、头像；居中裁切或完整留白 |
+| 图片滤镜 | 图片处理 | 亮度、对比度、饱和度、灰度、复古、模糊实时预览，导出 PNG |
+| HTTP 状态码 / MIME / 端口速查 | 站长工具 | 本地静态速查表，按状态码、MIME、端口分组并可搜索 |
+| 密码强度检测 | 站长工具 | 估算长度、字符集与熵值，提示常见弱密码、连续序列和重复字符；输入不保存 |
+| 复利计算器 | 数据驿站 | 初始本金 + 每月定投，按月复利计算终值、总投入、利息与逐年明细 |
 
-**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / SSL / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、OCR / PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、AES / RSA 等重型密码学，以及与现有 144 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。第二批候选（WiFi 二维码、Git / Docker 命令生成器、CSS Grid / Flexbox 生成器、SEO 套件、数据脱敏、银行卡校验、截图美化、社媒尺寸裁剪、图片滤镜、TTS、文字云、财务计算器、HTTP 状态码 / MIME / 端口速查、密码强度检测）尚未接入。
+**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / SSL / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、OCR / PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、AES / RSA 等重型密码学，以及与现有 156 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器。剩余候选（TTS、文字云、更多财务计算器）尚未接入。
 
 ## 关于 工具邦（cn.piliapp.com）的功能对照
 
