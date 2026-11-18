@@ -1,8 +1,32 @@
 # 简单工具箱
 
-一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：137 个 PDF、图片、文档、表格、开发者、数据、AI 辅助与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+> GitHub 仓库：<https://github.com/xgnw/tools>，仓库名为 `tools`；仓库根目录就是本站根目录。
 
-> 参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。
+一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：138 个 PDF、图片、文档、表格、开发者、数据、AI 辅助与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+
+> 主参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。不同批次的工具清单还参考过懒人工具、Ctool、PiliApp 等，完整来源见下方「参考过的源站」。
+
+## 参考过的源站
+
+下表按主要参考顺序列出。**只参考信息架构、交互方式、功能点或工具清单，不搬运源站代码、素材和打包产物**；具体接入与未接入项见后文各批次章节。
+
+| 源站 | 地址 | 主要参考内容 | 落地方式 |
+|---|---|---|---|
+| VIMON Tools | <https://www.vimon.cc/tools/> | 首页信息架构、分类与卡片布局、整体视觉语言 | 全站主参考；用原生 HTML/CSS/JS 重写 |
+| Z2H 字帖 | <https://z2h.cn/> | 字帖类型、描红参数与打印流程 | 参考使用路径，重写为本地 `worksheet.js`；未内置笔顺动画 |
+| 懒人工具 | <https://www.lanren-tools.com/> | 左侧菜单结构、白色圆角菜单卡、无顶栏布局、全站 Alt 快捷键 | 侧栏与快捷键按本站结构简化；见 `core.js` 的 `TB.buildSide` 与 `app.css` 侧栏段 |
+| passer-by | <https://passer-by.com/project.html> | 工具项目清单 | 选取 10 项按功能点原生重写，未照搬代码 |
+| Ctool | <https://ctool.dev/> | 开发 / 站长类工具清单 | 只取功能点；未移植 Vue 打包产物 |
+| IT Toolbox | <https://github.com/Zoroaaa/it-toolbox> | 140+ 工具清单与分类方式 | 只挑纯前端、可本地处理的能力，原生重写 |
+| 工具邦 PiliApp | <https://cn.piliapp.com/> | 纯前端小工具清单 | 新代码集中在 `assets/js/tools/piliapp.js` |
+| QuickSO 超级书签 | <https://quickso.cn/supermark.html> | `javascript:` 书签脚本清单 | 改造成可复制 / 拖拽的「超级书签」合集，见 `quickso.js` |
+| MKBlog Tool | <https://tool.mkblog.cn/> | 60 个工具条目 | 逐项比对后接入 8 个，见 `mkblog.js`、`mkblog2.js` |
+| BWmelon/qrcode | <https://github.com/BWmelon/qrcode> | 二维码 / 收款码功能点 | 仅参考功能；仓库无 LICENSE 且依赖外部服务，未整包接入 |
+
+另有两个本地参考目录，不是线上站点：
+
+- 用户提供的 `tool` 目录：7 组独立页面，选取 4 个纯前端工具重写，代码在 `assets/js/tools/sourcepack.js`。
+- `WWW/wx` 微信名片页面：参考交互与结构，重写为 `assets/js/tools/wechatcard.js`，并移除原页的 jQuery、html2canvas 与第三方 CDN 依赖。
 
 ## 与「简单导航网」的关系
 
@@ -12,9 +36,9 @@
 - 品牌：共用“简单”前缀；工具站 Logo 使用「简 + 工具」组合标
 - 互导：工具站侧栏底部 / 页脚 / 关于页都有“简单导航网”入口；主站导航栏增加“简单工具箱”入口，本站独立部署在 `https://tools.432600.xyz/`
 
-## 它和原站有什么不同
+## 它和主参考站有什么不同
 
-| | 原站 | 本项目 |
+| | 主参考站 | 本项目 |
 |---|---|---|
 | 账号体系 | 有登录 / 会员 / 额度 | 完全没有，打开即用 |
 | 文件处理 | 部分功能依赖服务端 | 全部用浏览器 API（pdf-lib、pdf.js、SheetJS、Canvas、WebCrypto、JSZip） |
@@ -22,13 +46,13 @@
 | 依赖 | 多个 CDN | 十二个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
 | 热门榜 | 服务端统计 | 用 localStorage 记录本机使用次数 |
 
-## 工具清单（137 个）
+## 工具清单（138 个）
 
 | 分类 | 数量 | 工具 |
 |---|---|---|
 | 办公文档 | 28 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单 |
 | 图片处理 | 18 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换 |
-| 文档创作 | 7 | Markdown 预览、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换 |
+| 文档创作 | 8 | Markdown 预览、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成 |
 | 站长工具 | 45 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、浏览器与设备、JWT 解析、YAML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL |
 | 数据驿站 | 12 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
@@ -37,7 +61,7 @@
 ## 目录结构
 
 ```
-toolbox-site/
+tools/
 ├── index.html               # 唯一入口（hash 路由，不需要服务端 rewrite）
 ├── pay.html                 # 收款码三合一的可扫码收款页（纯静态）
 ├── .nojekyll                # 关掉 GitHub Pages 的 Jekyll 处理
@@ -63,6 +87,7 @@ toolbox-site/
 │   │       │                # ID 生成 / 假数据 / 文本相似度 / 二维码识别
 │   │       ├── image.js     # 图片转换、拼接、九宫格、水印、Base64、SVG→PNG、占位图、印章
 │   │       ├── doc.js       # Markdown 预览、组织架构图、甘特图、座位牌
+│   │       ├── worksheet.js # 字帖生成（汉字 / 英文 / 数字 / 拼音 / 控笔，A4 打印）
 │   │       ├── web.js       # 编码、时间戳、JSON、正则、Cron、命名、颜色、文本、二维码、
 │   │       │                # Diff、.gitignore、robots、TOTP、子网、哈希
 │   │       ├── data.js      # 房贷、个税、折扣、单位换算
@@ -110,7 +135,7 @@ npx serve .
 
 ## 快捷键
 
-全站快捷键参考懒人工具的全站 Alt 组合键思路，按本站结构做了适配：
+全站快捷键参考[懒人工具](https://www.lanren-tools.com/)的全站 Alt 组合键思路，按本站结构做了适配：
 
 | 按键 | 作用 |
 |---|---|
@@ -124,7 +149,7 @@ npx serve .
 | `Esc` | 关闭弹窗 / 收起移动端侧栏 |
 | `?` | 打开快捷键说明面板 |
 
-页脚也有「快捷键」入口，窄屏页脚隐藏时用 `?` 打开。没有照搬懒人工具的 `Alt + U / F`（最新上线、收藏），因为本站没有这两个独立页面；改成了更实用的分类直达。
+页脚也有「快捷键」入口，窄屏页脚隐藏时用 `?` 打开。没有照搬[懒人工具](https://www.lanren-tools.com/)的 `Alt + U / F`（最新上线、收藏），因为本站没有这两个独立页面；改成了更实用的分类直达。
 
 ## 部署
 
@@ -132,7 +157,7 @@ npx serve .
 
 源码仓库：<https://github.com/xgnw/tools>。仓库根目录就是本站根目录（`index.html` 必须在根）。
 
-1. 把 `toolbox-site` 里的**全部文件**放到仓库根目录。
+1. 确保 `tools` 仓库根目录就是本站根目录：把 `index.html`、`pay.html`、`assets/`、`CNAME`、`.nojekyll`、`README.md` 全部放在仓库根目录。
 2. 提交推送：
    ```bash
    git init
@@ -161,7 +186,7 @@ npx serve .
 2. 构建设置：
    - Framework preset：`None`
    - Build command：**留空**
-   - Build output directory：`/`（或 `/toolbox-site`，取决于你仓库里的路径）
+   - Build output directory：`/`（仓库 `tools` 的根目录就是站点根目录）
 3. Save and Deploy，完成后拿到 `https://<project>.pages.dev`。
 
 不想接 Git 也可以：**Direct Upload** 把整个文件夹拖进去即可。

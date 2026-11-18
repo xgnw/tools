@@ -94,7 +94,7 @@
       });
 
       TB.$('#demo', root).addEventListener('click', function () {
-        el.title.value = '简单工具箱 · 137 个本地运行的在线小工具';
+        el.title.value = '简单工具箱 · 138 个本地运行的在线小工具';
         el.desc.value = 'PDF 合并拆分、图片压缩、二维码美化、收款码三合一、JSON 格式化…… 全部在浏览器里完成，文件不上传服务器。';
         el.url.value = 'https://tools.432600.xyz/';
         el.site.value = '简单工具箱';

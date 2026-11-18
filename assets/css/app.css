@@ -1798,3 +1798,107 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
   .qr-grid { grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 8px; }
   .qr-card { padding: 6px; }
 }
+
+/* ---------- 字帖生成：A4 预览、方格、四线三格 ---------- */
+.ws-wrap {
+  margin-top: 14px; padding: 14px; overflow: auto;
+  border-radius: 12px; background: var(--surface-3);
+  border: 1px solid var(--line);
+}
+.ws-empty {
+  padding: 42px 12px; text-align: center; font-size: 12.5px;
+  color: var(--ink-3); background: var(--surface); border-radius: 10px;
+}
+
+/* A4：210mm × 297mm，打印时保持真实纸张比例 */
+.ws-page {
+  width: 210mm; min-height: 297mm; box-sizing: border-box;
+  margin: 0 auto; padding: 14mm 12mm; background: #fff;
+  color: #1d2938; box-shadow: 0 12px 34px rgba(15, 23, 42, .12);
+  line-height: 1;
+}
+.ws-page + .ws-page { margin-top: 14px; }
+.ws-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 7px; margin-bottom: 8px;
+  border-bottom: 1px solid #dbe4ef;
+}
+.ws-title { font-size: 18px; font-weight: 700; font-style: normal; letter-spacing: .12em; }
+.ws-kind { font-family: system-ui, -apple-system, sans-serif; font-style: normal; font-size: 11px; color: #8593a7; }
+.ws-name { margin: 0 0 11px; color: #8a98ad; font-size: 11px; font-style: normal; letter-spacing: .04em; }
+.ws-body { font-size: 0; }
+
+/* 每一行都是一组方格；外框只画上、左，单元格画右、下，避免双线 */
+.ws-row {
+  display: flex; width: max-content; max-width: 100%;
+  border-top: 1px solid var(--guide); border-left: 1px solid var(--guide);
+  margin-bottom: 6px; font-size: 0;
+}
+.ws-cell {
+  position: relative; flex: 0 0 var(--cell);
+  width: var(--cell); height: var(--cell); box-sizing: border-box;
+  overflow: hidden; border-right: 1px solid var(--guide);
+  border-bottom: 1px solid var(--guide); background-color: #fff;
+}
+/* 田字格：横竖中线 */
+.ws-cell.g-tian {
+  background-image:
+    linear-gradient(to right, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px)),
+    linear-gradient(to bottom, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px));
+}
+/* 米字格：横竖中线 + 两条对角线 */
+.ws-cell.g-mi {
+  background-image:
+    linear-gradient(45deg, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px)),
+    linear-gradient(-45deg, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px)),
+    linear-gradient(to right, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px)),
+    linear-gradient(to bottom, transparent calc(50% - .5px), var(--guide) calc(50% - .5px), var(--guide) calc(50% + .5px), transparent calc(50% + .5px));
+}
+/* 回宫格：方格内再套一个小方框 */
+.ws-cell.g-hui::before {
+  content: ''; position: absolute; inset: 25%;
+  border: 1px solid var(--guide); pointer-events: none;
+}
+.ws-cell.g-blank { background-image: none; }
+
+.ws-char {
+  position: relative; z-index: 1; display: flex;
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  font-size: calc(var(--cell) * var(--fs));
+  font-weight: var(--weight); line-height: 1; text-align: center;
+  transform: translateY(var(--off));
+}
+.ws-char.model { color: #1d2938; }
+.ws-char.trace { color: var(--trace); opacity: .82; }
+
+/* 英文四线三格：四条横线 + 一行可换写的词组 */
+.ws-line {
+  width: 100%; height: calc(var(--cell) * 1.6);
+  margin-bottom: 7px; box-sizing: border-box; overflow: hidden;
+  border-left: 1px solid var(--guide); border-right: 1px solid var(--guide);
+  background-image: linear-gradient(to bottom, var(--guide) 0 1px, transparent 1px);
+  background-size: 100% 1px; background-repeat: no-repeat;
+  background-position: 0 0, 0 33.333%, 0 66.666%, 0 calc(100% - 1px);
+}
+.ws-line-content {
+  display: flex; align-items: center; gap: 12px;
+  height: 100%; padding: 0 4px; white-space: nowrap;
+  font-size: calc(var(--cell) * var(--fs));
+  font-weight: var(--weight);
+  transform: translateY(var(--off));
+}
+.ws-line-text.model { color: #1d2938; }
+.ws-line-text.trace { color: var(--trace); opacity: .82; }
+
+@media print {
+  .ws-wrap { margin: 0; padding: 0; overflow: visible; border: 0; background: #fff; }
+  .ws-page { width: 210mm; min-height: 0; height: auto; margin: 0; box-shadow: none; break-after: page; }
+  .ws-page:last-child { break-after: auto; }
+  .ws-row, .ws-line { break-inside: avoid; }
+}
+
+@media (max-width: 640px) {
+  .ws-wrap { padding: 8px; }
+  .ws-page { margin: 0; }
+}
