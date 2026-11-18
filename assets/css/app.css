@@ -1902,3 +1902,85 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
   .ws-wrap { padding: 8px; }
   .ws-page { margin: 0; }
 }
+
+/* ---------- 8. NewKit 第一批通用组件 ---------- */
+.hint-text {
+  font-size: 12px; color: var(--ink-3); line-height: 1.7;
+  margin: 10px 0 0;
+}
+.hint-text b { color: var(--ink-2); }
+
+/* JSON Schema 字段表 */
+.schemaTable-wrap { max-height: none; }
+.schemaTable th { white-space: nowrap; }
+.schemaTable td { white-space: normal; padding: 8px 9px; vertical-align: middle; }
+.schemaTable td .input { min-width: 120px; height: 32px; }
+.schemaTable td .select { min-width: 110px; height: 32px; }
+.schemaTable td .checks { white-space: nowrap; }
+.schemaTable .jsDel { flex: none; }
+.schemaEmpty { color: var(--ink-3); text-align: center; padding: 22px 10px !important; }
+.schemaErr {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 5px 0; border-bottom: 1px dashed var(--line);
+}
+.schemaErr:last-child { border-bottom: 0; }
+.schemaPath {
+  flex: none; min-width: 90px; max-width: 45%; overflow-wrap: anywhere;
+  color: var(--brand); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+/* Favicon 尺寸预览 */
+.favGrid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 12px 10px; margin-top: 4px;
+}
+.favItem {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--ink-3);
+}
+.favCanvasBox {
+  width: 62px; height: 62px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  background: repeating-conic-gradient(var(--surface-3) 0% 25%, var(--surface-2) 0% 50%) 50% / 12px 12px;
+}
+.favCanvasBox canvas { width: 54px; height: 54px; display: block; }
+
+/* PDF 手写板 */
+.sigPad {
+  display: block; width: 100%; height: 200px; touch-action: none;
+  border: 1.5px dashed var(--line-2); border-radius: 12px;
+  background: repeating-conic-gradient(var(--surface-3) 0% 25%, var(--surface-2) 0% 50%) 50% / 14px 14px;
+  cursor: crosshair;
+}
+.sigPad:focus { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* Markdown 表格编辑器 */
+.mdEditorWrap {
+  overflow: auto; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface);
+}
+.mdEditorTable {
+  width: 100%; border-collapse: collapse; min-width: 620px;
+}
+.mdEditorTable th, .mdEditorTable td {
+  padding: 7px 8px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line);
+  vertical-align: middle;
+}
+.mdEditorTable th { background: var(--surface-3); font-size: 11.5px; color: var(--ink-2); font-weight: 500; }
+.mdEditorTable tr:last-child td { border-bottom: 0; }
+.mdEditorTable th:last-child, .mdEditorTable td:last-child { border-right: 0; }
+.mdEditorTable .mdIdx { width: 44px; text-align: center; color: var(--ink-3); font-size: 11px; }
+.mdHeadCell { display: flex; gap: 6px; align-items: center; min-width: 250px; }
+.mdHeadCell .mdColName { min-width: 110px; height: 30px; padding: 5px 8px; }
+.mdHeadCell .mdAlign { min-width: 90px; height: 30px; padding: 5px 6px; }
+.mdEditorTable .mdCell { min-width: 130px; height: 32px; padding: 6px 8px; }
+.mdDelCol, .mdDelRow { flex: none; width: 28px; padding: 0; }
+
+@media (max-width: 520px) {
+  .schemaTable td .input { min-width: 92px; }
+  .schemaTable td .select { min-width: 88px; }
+  .sigPad { height: 160px; }
+  .mdEditorTable { min-width: 520px; }
+  .mdHeadCell { min-width: 210px; }
+}
