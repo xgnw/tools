@@ -2038,3 +2038,38 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
 
 /* 第四批：透视表行头固定 */
 .pivotHead { position: sticky; left: 0; z-index: 2; background: var(--surface-3); }
+
+/* 第六批：JSON 树形可视化 */
+.jt-tree {
+  max-height: 560px; overflow: auto;
+  padding: 8px 4px 12px;
+  font-size: 12.5px; line-height: 1.55;
+}
+.jt-node { min-width: max-content; }
+.jt-row {
+  display: flex; align-items: baseline; gap: 7px;
+  padding: 3px 8px; border-radius: 7px;
+  cursor: default;
+}
+.jt-row:hover { background: var(--surface-3); }
+.jt-node.jt-selected > .jt-row { background: var(--brand-soft); box-shadow: inset 0 0 0 1px var(--brand-line); }
+.jt-node.jt-hit > .jt-row { background: #fff6df; }
+[data-theme="dark"] .jt-node.jt-hit > .jt-row { background: #3a2f18; }
+.jt-toggle {
+  flex: 0 0 14px; width: 14px; text-align: center;
+  color: var(--ink-3); cursor: pointer; user-select: none;
+}
+.jt-key { color: var(--brand); font-weight: 600; word-break: break-all; }
+.jt-type {
+  flex: 0 0 auto; font-size: 10.5px; line-height: 1.5;
+  color: var(--ink-3); background: var(--surface-3);
+  border: 1px solid var(--line); border-radius: 5px; padding: 0 5px;
+}
+.jt-val { color: var(--ink-2); word-break: break-all; }
+.jt-children { margin-left: 17px; padding-left: 8px; border-left: 1px dashed var(--line-2); }
+.jt-node.jt-hide { display: none; }
+.jt-truncated { padding: 4px 8px; }
+
+/* 通用状态色（配合表格里的 ok / bad） */
+.table .ok { color: var(--ok); font-weight: 600; }
+.table .bad { color: var(--danger); font-weight: 600; }
