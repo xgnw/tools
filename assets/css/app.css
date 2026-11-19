@@ -2073,3 +2073,25 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
 /* 通用状态色（配合表格里的 ok / bad） */
 .table .ok { color: var(--ok); font-weight: 600; }
 .table .bad { color: var(--danger); font-weight: 600; }
+
+/* 第七批：科学计算器 */
+.sc-input { font-size: 18px; font-variant-numeric: tabular-nums; }
+.sc-result {
+  padding: 14px 16px; border-radius: 10px;
+  background: var(--surface-3); color: var(--brand);
+  font-size: 28px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right; overflow-wrap: anywhere;
+}
+.calc-pad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.calc-pad .btn { width: 100%; min-height: 42px; padding: 8px 6px; font-size: 16px; }
+.sc-history { display: flex; flex-direction: column; gap: 6px; }
+.sc-history-item {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  width: 100%; padding: 8px 10px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--surface-2); color: var(--ink-2);
+  font: inherit; text-align: left; cursor: pointer;
+}
+.sc-history-item:hover { border-color: var(--brand-line); background: var(--brand-soft); }
+.sc-history-expr { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sc-history-item b { flex: 0 0 auto; color: var(--ink-1); font-variant-numeric: tabular-nums; }
