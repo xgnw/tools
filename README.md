@@ -2,7 +2,7 @@
 
 > GitHub 仓库：<https://github.com/xgnw/tools>，仓库名为 `tools`；仓库根目录就是本站根目录。
 
-一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：220 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：226 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
 
 > 主参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。不同批次的工具清单还参考过懒人工具、Ctool、PiliApp 等，完整来源见下方「参考过的源站」。
 
@@ -44,20 +44,35 @@
 | 账号体系 | 有登录 / 会员 / 额度 | 完全没有，打开即用 |
 | 文件处理 | 部分功能依赖服务端 | 全部用浏览器 API（pdf-lib、pdf.js、SheetJS、Canvas、WebCrypto、JSZip） |
 | 部署 | 需要服务器 | 静态文件，任意静态托管 |
-| 依赖 | 多个 CDN | 十三个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
+| 依赖 | 多个 CDN | 十八个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
 | 热门榜 | 服务端统计 | 用 localStorage 记录本机使用次数 |
 
-## 工具清单（220 个）
+## 工具清单（226 个）
 
 | 分类 | 数量 | 工具 |
 |---|---|---|
-| 办公文档 | 35 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器 |
-| 图片处理 | 27 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边 |
-| 文档创作 | 10 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成、Markdown 思维导图 |
+| 办公文档 | 37 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器、PPT 演示文稿生成器、Word 文档预览 |
+| 图片处理 | 28 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边、图片 / 扫描 PDF OCR |
+| 文档创作 | 11 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成、Markdown 思维导图、Mermaid 图表 |
 | 站长工具 | 92 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试 |
-| 数据驿站 | 26 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器、投资分析计算器、科学计算器、发票税率换算器、JSON → CSV、时区转换器、矩阵计算器、统计计算器、方程求解器、Properties ⇄ YAML、质数判断与因数分解、硬盘整数分区计算 |
+| 数据驿站 | 28 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器、投资分析计算器、科学计算器、发票税率换算器、JSON → CSV、时区转换器、矩阵计算器、统计计算器、方程求解器、Properties ⇄ YAML、质数判断与因数分解、硬盘整数分区计算、图表生成器、SQLite 查询器 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
 | 休闲娱乐 | 24 | 随机数、UUID / 密码、日期差、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码、年度日历进度、骰子模拟器、在线白板 |
+
+## 第 226 版新增的 6 个开源工具
+
+这一版沿用「纯静态、文件不上传、无 iframe」的约束，只接入能在浏览器里独立完成、依赖可以完整本地化、许可证允许再分发的开源能力。依赖文件放在 `assets/lib/`，许可证原文放在 `assets/licenses/`。
+
+| 工具 | 页面脚本 | 本地依赖 | 许可证 | 能力 |
+|---|---|---|---|---|
+| PPT 演示文稿生成器 | `pptxgen.js` | PptxGenJS 4.0.1 | MIT | 解析 Markdown 大纲或表格，自动分页生成封面、目录、章节页、正文页、表格页与结束页，支持主题、16:9 / 4:3 和演讲备注，下载标准 `.pptx` |
+| 图表生成器 | `chartgen.js` | Chart.js 4.6.1 | MIT | 解析 CSV / TSV / JSON，自动识别标签列与数值列，支持柱状、横向条形、折线、饼图、环形图、雷达图、极区图，实时预览并导出 PNG |
+| 图片 / 扫描 PDF OCR | `ocr.js` | Tesseract.js 7.0.0、tesseract.js-core 6.1.2、pdf.js 3.11 | Apache-2.0 | 图片与 PDF 多选，中文 + 英文 / 中文 / 英文识别；PDF 先用 pdf.js 渲染页面，支持页码范围、渲染精度、灰度增强、分页结果、复制与 TXT 下载 |
+| SQLite 查询器 | `sqlite.js` | sql.js 1.17.0 | MIT | 把 CSV / JSON 导入内存 SQLite，文件名作表名并推断字段类型；提供示例表、Schema、SQL 执行、结果表格、CSV 与 `.sqlite` 导出 |
+| Mermaid 图表 | `mermaid.js` | Mermaid 12.3.0 | MIT | 流程图、时序图、类图、ER、甘特图、思维导图模板，实时渲染，SVG / PNG 导出，缩放与主题跟随；`securityLevel:'strict'`、关闭 HTML 标签以保证导出稳定 |
+| Word 文档预览 | `docxview.js` | docx-preview 0.4.1 | Apache-2.0 | 在本地把 DOCX 渲染为分页 HTML，支持页眉页脚 / 批注、缩放、适应宽度，并导出自包含 HTML（图片内嵌、脚本与事件属性已清理），不使用 iframe |
+
+实施中特别处理了两类浏览器限制：pdf.js 的页面渲染改用 `intent:'print'` 并加 45 秒超时，避免后台标签页的 `requestAnimationFrame` 节流让 OCR 永远停在“正在解析 PDF”；Chart.js 关闭入场动画，避免嵌入 / 后台窗口里画布一直空白。Mermaid 关闭 HTML 标签，避免 SVG 里的 `foreignObject` 导致 PNG 导出失败。
 
 ## 目录结构
 
@@ -158,6 +173,12 @@ tools/
 │   │       ├── toolwa-a.js  # 虚线边框 / HTML、JS 格式化 / 正则可视化 / EXIF / PDF 扫描件
 │   │       ├── toolwa-b.js  # 圆角图 / 去白边 / URL 解析 / 链接批量 / Punycode / 目录树 / 提词器 / 分区
 │   │       ├── toolwa-c.js  # 摄像头 / 麦克风 / 键盘 / 鼠标 / 手柄 / 刷新率 / GPU / 扬声器
+│   │       ├── pptxgen.js   # PPT 演示文稿生成器（Markdown / 表格 → 标准 .pptx）
+│   │       ├── chartgen.js  # 图表生成器（CSV / JSON → 7 种图表 + PNG）
+│   │       ├── ocr.js       # 图片 / 扫描 PDF OCR（Tesseract.js + pdf.js）
+│   │       ├── sqlite.js    # SQLite 查询器（CSV / JSON → 内存数据库）
+│   │       ├── mermaid.js   # Mermaid 图表（流程图 / 时序图 / 甘特图等）
+│   │       ├── docxview.js  # Word 文档预览（分页 HTML + 离线导出）
 │   │       └── fun.js      # 随机数、UUID/密码、日期差、BMI、星座生肖、世界时钟、吃什么、番茄钟
 │   └── lib/                 # 本地依赖（按需注入 <script>，首屏零加载）
 │       ├── pdf-lib.min.js   # pdf-lib 1.17.1（读写 PDF）
@@ -171,7 +192,20 @@ tools/
 │       ├── jsbarcode.min.js # JsBarcode 3.11.6（Code128 / EAN / Code39 / ITF / UPC，59KB）
 │       ├── jsqr.min.js      # jsQR 1.4.0（图片二维码解码，250KB，Apache-2.0）
 │       ├── pinyin-pro.min.js # pinyin-pro 3.29.5（汉字转拼音，325KB，MIT）
-│       └── smol-toml.js     # smol-toml 1.4.2（TOML 解析 / 序列化，BSD-3-Clause）
+│       ├── smol-toml.js     # smol-toml 1.4.2（TOML 解析 / 序列化，BSD-3-Clause）
+│       ├── pptxgen.bundle.js # PptxGenJS 4.0.1（生成 .pptx，MIT）
+│       ├── chart.umd.min.js  # Chart.js 4.6.1（Canvas 图表，MIT）
+│       ├── tesseract.min.js  # Tesseract.js 7.0.0（OCR 调度，Apache-2.0）
+│       ├── tesseract.worker.min.js
+│       ├── tesseract-core-simd-lstm.wasm.js # tesseract.js-core 6.1.2（Apache-2.0）
+│       ├── sql-wasm.js      # sql.js 1.17.0（WebAssembly SQLite，MIT）
+│       ├── sql-wasm.wasm
+│       ├── mermaid.min.js   # Mermaid 12.3.0（图表渲染，MIT）
+│       ├── docx-preview.min.js # docx-preview 0.4.1（DOCX 渲染，Apache-2.0）
+│       └── tessdata/        # OCR 语言包（eng / chi_sim，gzip）
+│           ├── eng.traineddata.gz
+│           └── chi_sim.traineddata.gz
+│   └── licenses/            # 第三方许可证原文（PptxGenJS / Chart.js / Tesseract / sql.js / Mermaid / docx-preview）
 ```
 
 ## 本地预览
@@ -468,7 +502,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 会议时间协调器 | 办公文档 | 按 UTC 日期把 0–23 点换算到多个 IANA 时区，按各人工作时段寻找全员重叠；没有重叠时给出最大重合 |
 | 在线白板 | 休闲娱乐 | Canvas 画笔、橡皮、颜色、粗细、撤销、清空与导出 PNG；内部画布 1600×900，响应式缩放 |
 
-**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / SSL / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、OCR / PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、AES / RSA 等重型密码学，以及与现有 220 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
+**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / SSL / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、AES / RSA 等重型密码学，以及与现有 226 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
 
 ## 关于 Toolwa（工具哇）镜像的功能对照
 
@@ -557,7 +591,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | SVG 海浪 | 站长工具 | 2–6 层正弦波、振幅 / 波长 / 相位 / 4 套配色，预览并下载 SVG 或 1200×400 PNG |
 | SVG 压缩 | 站长工具 | 保守清理注释、XML 声明、metadata 与标签间空白，显示压缩前后字节和比例；不引入 SVGO |
 
-**没接的**：工具哇 / 在线 PS / 白板 / 音频编辑器 / 屏幕录制 / FC 游戏 / 谷歌电吉他 / 手鼓猫 / 架子鼓（外链应用、素材体积或交互工程量过大）；LOGO 生成（涉及品牌仿制）；艺术二维码（本站已有二维码生成 / 美化 / 识别三个工具）；中国家庭称谓 / 屏幕检测 / 屏幕常亮 / IP 地址查询 / 浏览器 UA / 进制转换 / 文本差异 / 字数统计 / HTML 转义 / MD5 / 时间戳 / 密码 / JSON / Markdown / 图片 Base64 / PDF 拆分合并（本站已有对应工具）；OCR / 聚合翻译 / 手机号归属地 / DNS / Whois / 网址安全检测 / 聚合图床 / WordPress 主题嗅探 / GitHub 文件夹下载（需要服务端、数据库或第三方接口）。Autoprefixer / js 混淆加密 / CSS 美化暂不引入，避免为了几个正则再背一个大库。
+**没接的**：工具哇 / 在线 PS / 白板 / 音频编辑器 / 屏幕录制 / FC 游戏 / 谷歌电吉他 / 手鼓猫 / 架子鼓（外链应用、素材体积或交互工程量过大）；LOGO 生成（涉及品牌仿制）；艺术二维码（本站已有二维码生成 / 美化 / 识别三个工具）；中国家庭称谓 / 屏幕检测 / 屏幕常亮 / IP 地址查询 / 浏览器 UA / 进制转换 / 文本差异 / 字数统计 / HTML 转义 / MD5 / 时间戳 / 密码 / JSON / Markdown / 图片 Base64 / PDF 拆分合并（本站已有对应工具）；聚合翻译 / 手机号归属地 / DNS / Whois / 网址安全检测 / 聚合图床 / WordPress 主题嗅探 / GitHub 文件夹下载（需要服务端、数据库或第三方接口）。Autoprefixer / js 混淆加密 / CSS 美化暂不引入，避免为了几个正则再背一个大库。
 
 ## 关于用户提供的「网站源码」工具包
 
