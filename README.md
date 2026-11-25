@@ -2,7 +2,7 @@
 
 > GitHub 仓库：<https://github.com/xgnw/tools>，仓库名为 `tools`；仓库根目录就是本站根目录。
 
-一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：240 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：246 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
 
 > 主参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。不同批次的工具清单还参考过懒人工具、Ctool、PiliApp 等，完整来源见下方「参考过的源站」。
 
@@ -49,17 +49,32 @@
 | 依赖 | 多个 CDN | 二十一个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
 | 热门榜 | 服务端统计 | 用 localStorage 记录本机使用次数 |
 
-## 工具清单（240 个）
+## 工具清单（246 个）
 
 | 分类 | 数量 | 工具 |
 |---|---|---|
-| 办公文档 | 39 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器、PPT 演示文稿生成器、Word 文档预览、办公速查、课堂名单 |
-| 图片处理 | 29 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边、图片 / 扫描 PDF OCR、头像挂件生成器 |
+| 办公文档 | 41 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、PDF 表单填写、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器、PPT 演示文稿生成器、Word 文档预览、办公速查、课堂名单、课程表生成器 |
+| 图片处理 | 30 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边、图片 / 扫描 PDF OCR、头像挂件生成器、图片像素化 / 马赛克 |
 | 文档创作 | 12 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成、Markdown 思维导图、Mermaid 图表、中文排版助手 |
-| 站长工具 | 99 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试、RSA / ECC 密钥工具、AES 加密解密、证书与 CSR 工具、Linux 命令速查、国密 SM2 工具、IPv6 地址计算、文件 ⇄ Base64 |
+| 站长工具 | 102 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试、RSA / ECC 密钥工具、AES 加密解密、证书与 CSR 工具、Linux 命令速查、国密 SM2 工具、IPv6 地址计算、文件 ⇄ Base64、OpenAPI / Swagger 查看器、Sitemap 生成器、vCard 二维码 |
 | 数据驿站 | 30 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器、投资分析计算器、科学计算器、发票税率换算器、JSON → CSV、时区转换器、矩阵计算器、统计计算器、方程求解器、Properties ⇄ YAML、质数判断与因数分解、硬盘整数分区计算、图表生成器、SQLite 查询器、元素周期表、屏幕参数计算 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
 | 休闲娱乐 | 25 | 随机数、UUID / 密码、日期差、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码、年度日历进度、骰子模拟器、在线白板、在线钢琴 |
+
+## 第 246 版新增的 6 个工具
+
+用户确认在 240 版基础上继续补 6 个能纯前端完成、且不与现有工具重复的缺口。这一版没有继续追参考站的工具数量，只按「打开就能用、文件不外传、依赖可本地化」的标准筛选；6 个工具都没有新增第三方库。
+
+| 工具 | 分类 | 页面脚本 | 本地依赖 | 能力与边界 |
+|---|---|---|---|---|
+| OpenAPI / Swagger 查看器 | 站长工具 | `openapi.js` | `js-yaml.min.js`（仅 YAML 时加载） | 粘贴 OpenAPI 3.x 或 Swagger 2.0 的 JSON / YAML，展开接口路径、方法、参数、请求体、响应、tag 与 servers；支持关键词筛选和 Markdown 导出。只读文档，不发起在线试请求；`$ref` 显示引用名，不递归展开整份 Schema |
+| PDF 表单填写 | 办公文档 | `pdfform.js` | `pdf-lib.min.js` | 读取 AcroForm 的文本、复选框、下拉框、单选组和多选列表；默认扁平化后下载，也可保留字段。扫描版 / 图片型 PDF 没有字段时明确提示；中文字体由原 PDF 的表单字体决定，填写异常时建议扁平化或更换模板 |
+| Sitemap 生成器 | 站长工具 | `sitemap.js` | 0 依赖 | 每行一个 URL，校验 http / https、去掉 hash 片段、自动去重，统一添加 lastmod / changefreq / priority 并生成 `sitemap.xml`；不爬站、不提交搜索引擎。不同页面需要不同元数据时，分多次生成再合并 |
+| vCard 二维码 | 站长工具 | `vcard.js` | `qrcode.js` | 姓名、公司、职位、电话、邮箱、网站、地址、备注生成 vCard 3.0 与二维码，可下载 PNG / SVG 或复制原文；字段转义按 vCard 规则处理，扫码后的导入行为由手机通讯录决定 |
+| 课程表生成器 | 办公文档 | `timetable.js` | 0 依赖 | 周一至周五 × 6—10 节的网格编辑，实时预览，导出 1500px 宽的 PNG，或在新窗口打印 A4 横向版式；课程内容不写入 localStorage，刷新后不保留 |
+| 图片像素化 / 马赛克 | 图片处理 | `mosaic.js` | 0 依赖（Canvas） | 全图块状像素化，或切换到局部马赛克用鼠标 / 手指涂抹；像素块大小和笔刷直径可调，导出 PNG。最长边超过 3000px 时等比缩小；马赛克是像素覆盖，不提供还原 |
+
+新增 6 个脚本合计约 63 KB（未压缩）。工具数从 240 增至 246，分类为 `office 41 / image 30 / doc 12 / web 102 / data 30 / ai 6 / fun 25`。首页脚本、`app.css`、`README.md` 已同步到 246 版，旧版工具脚本继续保留原版本号。
 
 ## 第 226 版新增的 6 个开源工具
 
@@ -237,6 +252,12 @@ tools/
 │   │       ├── periodic.js  # 元素周期表（118 元素 + 分类筛选 / 详情）
 │   │       ├── roster.js    # 课堂名单（拼音排序 + 随机点名 + localStorage）
 │   │       ├── screencalc.js # 屏幕参数计算（PPI / 宽高比 / 观看距离）
+│   │       ├── openapi.js   # OpenAPI / Swagger 查看器（JSON / YAML → Markdown）
+│   │       ├── pdfform.js    # PDF 表单填写（AcroForm 字段 + 扁平化下载）
+│   │       ├── sitemap.js    # Sitemap 生成器（URL 列表 → sitemap.xml）
+│   │       ├── vcard.js      # vCard 二维码（vCard 3.0 + PNG / SVG）
+│   │       ├── timetable.js  # 课程表生成器（5 天 × 6—10 节，PNG / 打印）
+│   │       ├── mosaic.js     # 图片像素化 / 马赛克（全图 + 局部画笔）
 │   │       └── fun.js      # 随机数、UUID/密码、日期差、BMI、星座生肖、世界时钟、吃什么、番茄钟
 │   └── lib/                 # 本地依赖（按需注入 <script>，首屏零加载）
 │       ├── pdf-lib.min.js   # pdf-lib 1.17.1（读写 PDF）
@@ -573,7 +594,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 会议时间协调器 | 办公文档 | 按 UTC 日期把 0–23 点换算到多个 IANA 时区，按各人工作时段寻找全员重叠；没有重叠时给出最大重合 |
 | 在线白板 | 休闲娱乐 | Canvas 画笔、橡皮、颜色、粗细、撤销、清空与导出 PNG；内部画布 1600×900，响应式缩放 |
 
-**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、国密 SM4（需要额外算法库与测试向量），以及与现有 240 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板；第 230 版接入 RSA / ECC、AES、证书 / CSR 与 Linux 命令速查；第 234 版接入国密 SM2、在线钢琴、头像挂件与中文排版；第 240 版接入 IPv6 地址计算、文件 ⇄ Base64、办公速查、元素周期表、课堂名单与屏幕参数计算。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
+**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、国密 SM4（需要额外算法库与测试向量），以及与现有 246 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板；第 230 版接入 RSA / ECC、AES、证书 / CSR 与 Linux 命令速查；第 234 版接入国密 SM2、在线钢琴、头像挂件与中文排版；第 240 版接入 IPv6 地址计算、文件 ⇄ Base64、办公速查、元素周期表、课堂名单与屏幕参数计算；第 246 版接入 OpenAPI / Swagger 查看器、PDF 表单填写、Sitemap 生成器、vCard 二维码、课程表生成器与图片像素化 / 马赛克。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
 
 ## 关于 Toolwa（工具哇）镜像的功能对照
 
