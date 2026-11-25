@@ -1408,7 +1408,21 @@
             '</div></div>' +
           '<div class="kv" id="out" style="margin-top:12px"></div>' +
         '</div>' +
-        '<div class="note">支持 IPv4，例如 10.0.0.5/8、172.16.1.0/20。计算内容包括网络地址、广播地址、可用主机范围与主机数量。</div>';
+        '<div class="note">支持 IPv4，例如 10.0.0.5/8、172.16.1.0/20。计算内容包括网络地址、广播地址、可用主机范围与主机数量。</div>' +
+        '<div class="panel" style="margin-top:14px">' +
+          '<div class="panel-h">数字 IP 转换<span class="hint">IPv4 点分十进制 ⇄ 32 位整数</span></div>' +
+          '<div class="row">' +
+            '<div class="field"><div class="label"><b>点分十进制</b></div>' +
+              '<input class="input" id="ipnumIp" value="192.168.1.1" style="font-family:ui-monospace,monospace"></div>' +
+            '<div class="field"><div class="label"><b>数字地址</b></div>' +
+              '<input class="input" id="ipnumNum" value="3232235777" style="font-family:ui-monospace,monospace"></div>' +
+          '</div>' +
+          '<div class="btns">' +
+            '<button class="btn primary" id="ipnumToNum" type="button">IP → 数字</button>' +
+            '<button class="btn" id="ipnumToIp" type="button">数字 → IP</button>' +
+          '</div>' +
+          '<div class="kv" id="ipnumOut" style="margin-top:12px"></div>' +
+        '</div>';
 
       function ipToInt(ip) {
         var p = ip.split('.');
@@ -1460,6 +1474,48 @@
       });
 
       TB.$('#run', root).click();
+
+      /* 数字 IP：与点分十进制互转，复用上面的 ipToInt / intToIp */
+      function showIpNum(n) {
+        var decimal = String(n >>> 0);
+        var hex = '0x' + ('00000000' + (n >>> 0).toString(16)).slice(-8).toUpperCase();
+        var binary = (n >>> 0).toString(2).padStart(32, '0').match(/.{8}/g).join('.');
+        TB.$('#ipnumOut', root).innerHTML = [
+          ['点分十进制', intToIp(n)],
+          ['十进制', decimal],
+          ['十六进制', hex],
+          ['二进制', binary]
+        ].map(function (r) {
+          return '<div class="kv-item"><div class="kv-k">' + r[0] + '</div><div class="kv-v">' + r[1] + '</div></div>';
+        }).join('');
+      }
+
+      TB.$('#ipnumToNum', root).addEventListener('click', function () {
+        var n = ipToInt(TB.$('#ipnumIp', root).value.trim());
+        if (n === null) {
+          TB.$('#ipnumOut', root).innerHTML = '<div class="result-err">IP 格式不对，应为 0—255 的四段数字</div>';
+          return;
+        }
+        TB.$('#ipnumNum', root).value = String(n);
+        showIpNum(n);
+      });
+
+      TB.$('#ipnumToIp', root).addEventListener('click', function () {
+        var s = TB.$('#ipnumNum', root).value.trim().replace(/,/g, '');
+        if (!/^\d{1,10}$/.test(s)) {
+          TB.$('#ipnumOut', root).innerHTML = '<div class="result-err">数字地址应为 0—4294967295 的整数</div>';
+          return;
+        }
+        var n = Number(s);
+        if (n < 0 || n > 4294967295) {
+          TB.$('#ipnumOut', root).innerHTML = '<div class="result-err">数字地址超出 IPv4 范围（0—4294967295）</div>';
+          return;
+        }
+        TB.$('#ipnumIp', root).value = intToIp(n);
+        showIpNum(n);
+      });
+
+      TB.$('#ipnumToNum', root).click();
     }
   });
 

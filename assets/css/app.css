@@ -2883,3 +2883,31 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
   .sql-tables { grid-template-columns: 1fr; }
   .ppt-prev-card .ppt-agenda ol { gap: .28em .8em; }
 }
+
+/* ---------- RSA / ECC / AES ---------- */
+.rk-pane { display: none; }
+.rk-pane.on { display: block; }
+.key-area { min-height: 128px; font-size: 11.8px; line-height: 1.55; }
+
+/* ---------- Linux 命令速查 ---------- */
+.lx-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.lx-toolbar .input { flex: 1 1 240px; }
+.lx-meta { margin: 0 0 10px; color: var(--ink-3); font-size: 11.5px; }
+.lx-list { display: grid; gap: 8px; }
+.lx-item { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--surface-2); }
+.lx-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.lx-cmd { margin: 0; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+.lx-desc { color: var(--ink-2); font-size: 12px; }
+.lx-tag { margin-left: auto; padding: 2px 7px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink-3); font-size: 10.5px; white-space: nowrap; }
+.lx-warn { padding: 2px 6px; border-radius: 5px; background: color-mix(in srgb, #d97706 12%, var(--surface)); color: #b45309; font-size: 10.5px; white-space: nowrap; }
+.lx-ex { display: flex; align-items: flex-start; gap: 8px; margin-top: 7px; }
+.lx-ex code { flex: 1 1 auto; min-width: 0; padding: 5px 8px; border-radius: 6px; background: var(--surface); color: var(--ink-2); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11.5px; line-height: 1.55; white-space: pre-wrap; word-break: break-all; }
+.lx-ex .btn { flex: none; height: 30px; padding: 0 10px; font-size: 12px; }
+.lx-note { margin-top: 6px; color: #b45309; font-size: 11px; line-height: 1.55; }
+
+@media (max-width: 700px) {
+  .lx-head { gap: 5px; }
+  .lx-tag { margin-left: 0; }
+  .lx-ex { flex-direction: column; }
+  .lx-ex .btn { align-self: flex-start; }
+}

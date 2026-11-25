@@ -2,7 +2,7 @@
 
 > GitHub 仓库：<https://github.com/xgnw/tools>，仓库名为 `tools`；仓库根目录就是本站根目录。
 
-一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：226 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
+一个可以直接丢到 GitHub Pages / Cloudflare Pages 的纯静态在线工具站：230 个 PDF、图片、文档、表格、开发者、数据、AI 辅助、硬件检测与休闲工具，**全部在浏览器本地运行，没有登录、没有次数限制、文件不上传服务器**。
 
 > 主参考 [vimon.cc/tools](https://www.vimon.cc/tools/) 的信息架构与视觉语言重写，但代码是自己写的原生实现：没有 iframe、没有框架、没有构建步骤，也不需要后端。不同批次的工具清单还参考过懒人工具、Ctool、PiliApp 等，完整来源见下方「参考过的源站」。
 
@@ -21,6 +21,7 @@
 | 工具邦 PiliApp | <https://cn.piliapp.com/> | 纯前端小工具清单 | 新代码集中在 `assets/js/tools/piliapp.js` |
 | QuickSO 超级书签 | <https://quickso.cn/supermark.html> | `javascript:` 书签脚本清单 | 改造成可复制 / 拖拽的「超级书签」合集，见 `quickso.js` |
 | MKBlog Tool | <https://tool.mkblog.cn/> | 60 个工具条目 | 逐项比对后接入 8 个，见 `mkblog.js`、`mkblog2.js` |
+| 无名工具网 | <https://tool.662662.xyz/> | 开发 / 站长类工具清单，评估 RSA、AES、证书 / CSR、Linux 命令与数字 IP 等候选 | 只取能在浏览器本地完成的功能点；新增 4 个工具，数字 IP 并入现有子网计算 |
 | NewKit | <https://www.newkit.site/tools/> | 233 个工具的功能清单与分类方式 | 第一批接入 6 个纯静态工具（`jsonschema.js`、`toml.js`、`csvsql.js`、`favicon.js`、`pdfsign.js`、`mdtable.js`）；第二批 6 个（`wifiqr.js`、`gitdocker.js`、`csslayout.js`、`seo.js`、`mask.js`、`bankcard.js`）；第三批 6 个（`screenshot.js`、`socialcrop.js`、`imgfilter.js`、`httpref.js`、`passstrength.js`、`compound.js`）；第四批 6 个（`pivot.js`、`compose.js`、`nginx.js`、`wordcloud.js`、`tts.js`、`mindmap.js`）；第五批 6 个（`jsonzod.js`、`chmod.js`、`keyword.js`、`jsonld.js`、`utm.js`、`invest.js`）；第六批 6 个（`headers.js`、`graphql.js`、`html2md.js`、`jsontree.js`、`socguide.js`、`asciiart.js`）；第七批 6 个（`cssfmt.js`、`uuidparse.js`、`yamlview.js`、`commitgen.js`、`scicalc.js`、`invoicetax.js`）；第八批 6 个（`cronbuild.js`、`cssvars.js`、`radiusgen.js`、`jsoncsv.js`、`tzconv.js`、`matrixcalc.js`）；第九批 6 个（`stats.js`、`eqsolve.js`、`macgen.js`、`propsyaml.js`、`yearprogress.js`、`dice.js`）；第十批 6 个（`primes.js`、`palette.js`、`cssanim.js`、`snippets.js`、`meeting.js`、`whiteboard.js`） |
 | BWmelon/qrcode | <https://github.com/BWmelon/qrcode> | 二维码 / 收款码功能点 | 仅参考功能；仓库无 LICENSE 且依赖外部服务，未整包接入 |
 
@@ -44,17 +45,17 @@
 | 账号体系 | 有登录 / 会员 / 额度 | 完全没有，打开即用 |
 | 文件处理 | 部分功能依赖服务端 | 全部用浏览器 API（pdf-lib、pdf.js、SheetJS、Canvas、WebCrypto、JSZip） |
 | 部署 | 需要服务器 | 静态文件，任意静态托管 |
-| 依赖 | 多个 CDN | 十八个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
+| 依赖 | 多个 CDN | 二十个库全部本地放在 `assets/lib/`，用到才加载，首屏零依赖 |
 | 热门榜 | 服务端统计 | 用 localStorage 记录本机使用次数 |
 
-## 工具清单（226 个）
+## 工具清单（230 个）
 
 | 分类 | 数量 | 工具 |
 |---|---|---|
 | 办公文档 | 37 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器、PPT 演示文稿生成器、Word 文档预览 |
 | 图片处理 | 28 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边、图片 / 扫描 PDF OCR |
 | 文档创作 | 11 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成、Markdown 思维导图、Mermaid 图表 |
-| 站长工具 | 92 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试 |
+| 站长工具 | 96 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试、RSA / ECC 密钥工具、AES 加密解密、证书与 CSR 工具、Linux 命令速查 |
 | 数据驿站 | 28 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器、投资分析计算器、科学计算器、发票税率换算器、JSON → CSV、时区转换器、矩阵计算器、统计计算器、方程求解器、Properties ⇄ YAML、质数判断与因数分解、硬盘整数分区计算、图表生成器、SQLite 查询器 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
 | 休闲娱乐 | 24 | 随机数、UUID / 密码、日期差、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码、年度日历进度、骰子模拟器、在线白板 |
@@ -73,6 +74,19 @@
 | Word 文档预览 | `docxview.js` | docx-preview 0.4.1 | Apache-2.0 | 在本地把 DOCX 渲染为分页 HTML，支持页眉页脚 / 批注、缩放、适应宽度，并导出自包含 HTML（图片内嵌、脚本与事件属性已清理），不使用 iframe |
 
 实施中特别处理了两类浏览器限制：pdf.js 的页面渲染改用 `intent:'print'` 并加 45 秒超时，避免后台标签页的 `requestAnimationFrame` 节流让 OCR 永远停在“正在解析 PDF”；Chart.js 关闭入场动画，避免嵌入 / 后台窗口里画布一直空白。Mermaid 关闭 HTML 标签，避免 SVG 里的 `foreignObject` 导致 PNG 导出失败。
+
+## 第 230 版新增的 4 个开发者工具
+
+在参考无名工具网之后，只接入了 4 个能在浏览器本地完成、不依赖服务端的开发者工具；数字 IP 地址转换并入现有「IP 子网计算」，不单列卡片。新增依赖只有一个证书库组合，约 0.23 MB，避免再次出现 226 版 OCR / Mermaid 那样 5 MB 级的体积跳变。
+
+| 工具 | 页面脚本 | 本地依赖 | 许可证 | 能力 |
+|---|---|---|---|---|
+| RSA / ECC 密钥工具 | `cryptotools.js` | WebCrypto（0 依赖） | 浏览器内置 | RSA-OAEP / RSA-PSS 2048、4096 位与 ECDSA P-256 / P-384 密钥生成；SPKI 公钥、PKCS#8 私钥 PEM 复制 / 下载；RSA-PSS 与 ECDSA 签名验签；RSA-OAEP 短文本加解密。只保留 WebCrypto 正确支持的算法，不提供 PKCS#1、512 / 1024 位 RSA、DSA、DH |
+| AES 加密解密 | `cryptotools.js` | WebCrypto（0 依赖） | 浏览器内置 | AES-256-GCM，密钥由 PBKDF2-SHA256（310,000 次）从密码派生；文本加密输出 JSON，文件加密输出 `.tben` 容器（版本、迭代次数、盐、IV、密文），文本与文件都可本地解密。不提供 DES、RC4、ECB |
+| 证书与 CSR 工具 | `certtool.js` | `@peculiar/x509` 2.2.0、`@abraham/reflection` 0.14.0 | MIT | 本地解析 X.509 证书（PEM / Base64 / DER），显示主体、签发者、有效期、签名算法、公钥算法、SAN、KeyUsage、EKU、BasicConstraints、SKID / AKID、SHA-1 / SHA-256 指纹；生成 RSA 2048 / 4096 或 ECDSA P-256 / P-384 CSR，支持 SAN 与 KeyUsage；解析 CSR 并校验自签名 |
+| Linux 命令速查 | `linuxref.js` | 0 依赖 | 静态数据 | 106 条常用命令，覆盖文件与目录、文本处理、进程与系统、网络、包管理、开发；支持分类筛选、关键词搜索、一键复制示例，并对 `rm`、`rsync --delete`、`fdisk`、`mkfs`、`dd` 等标注“谨慎” |
+
+证书库接入时先加载 Reflect polyfill，再加载 x509；否则 `@peculiar/x509` 依赖的 `tsyringe` 会报 “requires a reflect polyfill”。证书和私钥只在当前页面内存中处理，刷新即消失；工具不会根据域名在线拉取证书，也不会上传文件。
 
 ## 目录结构
 
@@ -105,7 +119,7 @@ tools/
 │   │       ├── doc.js       # Markdown 预览、组织架构图、甘特图、座位牌
 │   │       ├── worksheet.js # 字帖生成（汉字 / 英文 / 数字 / 拼音 / 控笔，A4 打印）
 │   │       ├── web.js       # 编码、时间戳、JSON、正则、Cron、命名、颜色、文本、二维码、
-│   │       │                # Diff、.gitignore、robots、TOTP、子网、哈希
+│   │       │                # Diff、.gitignore、robots、TOTP、子网（含数字 IP）、哈希
 │   │       ├── data.js      # 房贷、个税、折扣、单位换算
 │   │       ├── ai.js        # 中文提示词库
 │   │       ├── ai2.js       # Token 估算 / 模板填充 / 系统提示词 / 绘图提示词 / 成本估算
@@ -179,6 +193,9 @@ tools/
 │   │       ├── sqlite.js    # SQLite 查询器（CSV / JSON → 内存数据库）
 │   │       ├── mermaid.js   # Mermaid 图表（流程图 / 时序图 / 甘特图等）
 │   │       ├── docxview.js  # Word 文档预览（分页 HTML + 离线导出）
+│   │       ├── cryptotools.js # RSA / ECC 密钥工具 + AES 加密解密（WebCrypto）
+│   │       ├── certtool.js  # 证书查看 / CSR 生成与解析（x509 + reflection）
+│   │       ├── linuxref.js  # Linux 命令速查（106 条静态命令）
 │   │       └── fun.js      # 随机数、UUID/密码、日期差、BMI、星座生肖、世界时钟、吃什么、番茄钟
 │   └── lib/                 # 本地依赖（按需注入 <script>，首屏零加载）
 │       ├── pdf-lib.min.js   # pdf-lib 1.17.1（读写 PDF）
@@ -202,10 +219,12 @@ tools/
 │       ├── sql-wasm.wasm
 │       ├── mermaid.min.js   # Mermaid 12.3.0（图表渲染，MIT）
 │       ├── docx-preview.min.js # docx-preview 0.4.1（DOCX 渲染，Apache-2.0）
+│       ├── x509.js          # @peculiar/x509 2.2.0（证书 / CSR 解析与生成，MIT）
+│       ├── reflection.js    # @abraham/reflection 0.14.0（Reflect metadata polyfill，MIT）
 │       └── tessdata/        # OCR 语言包（eng / chi_sim，gzip）
 │           ├── eng.traineddata.gz
 │           └── chi_sim.traineddata.gz
-│   └── licenses/            # 第三方许可证原文（PptxGenJS / Chart.js / Tesseract / sql.js / Mermaid / docx-preview）
+│   └── licenses/            # 第三方许可证原文（PptxGenJS / Chart.js / Tesseract / sql.js / Mermaid / docx-preview / x509 / reflection）
 ```
 
 ## 本地预览
@@ -414,7 +433,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 请求片段生成 | curl / fetch / Python / axios / Go |
 | 进制转换 | BigInt 任意 2–36 进制，负数与 `0x` 前缀 |
 
-**没接的**：AES / DES / 3DES / RC4 / RSA / SM2 / SM4 / bcrypt（密码学工具需要密钥管理、模式选择一堆前置条件，做浅了容易让人误用不安全参数；Ctool 的相关 chunk 加起来近 1MB，不适合搬进纯静态包）、WebSocket 调试（必须有服务端配合，静态站只能当摆设）、gzip 压缩（与已有的 ZIP 打包功能重叠）、ASN.1 / 证书解析、ARM 指令转机器码（受众极窄），以及 IPv4/IPv6 计算、URL 解析、表单序列化、变量名转换（本站已有「IP 子网」「编码转换」「命名转换」覆盖同类需求）。拼音转换已接入本地 pinyin-pro（325KB，MIT），支持声调、数字声调与首字母；多音字按常用读音。
+**没接的**：DES / 3DES / RC4 / SM2 / SM4 / bcrypt（这些算法要么已被淘汰，要么需要额外的国密库与测试向量；做浅了容易让人误用不安全参数）、WebSocket 调试（必须有服务端配合，静态站只能当摆设）、gzip 压缩（与已有的 ZIP 打包功能重叠）、ARM 指令转机器码（受众极窄），以及 IPv4/IPv6 计算、URL 解析、表单序列化、变量名转换（本站已有「IP 子网」「编码转换」「命名转换」覆盖同类需求）。拼音转换已接入本地 pinyin-pro（325KB，MIT），支持声调、数字声调与首字母；多音字按常用读音。AES、RSA / ECC 与证书 / CSR 已在第 230 版按 WebCrypto 和 `@peculiar/x509` 的正确参数范围单独接入，不使用本轮 Ctool 的重型打包文件。
 
 ## 关于 IT Toolbox 的功能对照
 
@@ -433,7 +452,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 文本相似度 | 编辑距离、二元组 Jaccard、字频余弦，三种口径加条形图 |
 | 二维码识别 | 图片上传 → canvas → jsQR 本地解码，不上传服务器 |
 
-**没接的**：IP 归属地 / DNS 查询 / WHOIS / SSL 证书检测 / HTTP 接口测试（都要请求第三方服务，纯静态站绕不开跨域与密钥）、AI 增强类 12 个（需要模型 API Key 与计费）、AES / RSA / bcrypt / SSH 密钥 / 证书解析（重密码学，与 Ctool 那轮的取舍一致，不做浅层实现）、JSON / Markdown / YAML / SQL / CSS / JS / CSV 格式化（本站已有 JSON、YAML、SQL、CSS 生成、CSV 互转，重复的不再堆一个）、时间戳 / UUID / 时间换算 / 单位换算 / 颜色转换（已有同名工具）。剩下这些仍在评估、尚未接入：TOML ⇄ JSON（已由 NewKit 批次接入）、ROT13 / Punycode / ASCII 码表、色盲模拟、Tailwind 色板、SemVer 解析、许可证 / README / Meta 生成、EXIF 读取、罗马数字、JSON 表格互转（JSON Schema 校验已由 NewKit 批次单独接入）、HTTP 状态码 / MIME / 端口速查。
+**没接的**：IP 归属地 / DNS 查询 / WHOIS / SSL 证书检测 / HTTP 接口测试（都要请求第三方服务，纯静态站绕不开跨域与密钥）、AI 增强类 12 个（需要模型 API Key 与计费）、bcrypt / SSH 密钥 / SM2 / SM4（需要额外的算法库与参数校验；当时未做浅层实现）、JSON / Markdown / YAML / SQL / CSS / JS / CSV 格式化（本站已有 JSON、YAML、SQL、CSS 生成、CSV 互转，重复的不再堆一个）、时间戳 / UUID / 时间换算 / 单位换算 / 颜色转换（已有同名工具）。证书与 CSR 后来在第 230 版用本地 `@peculiar/x509` 单独接入；AES 与 RSA / ECC 用 WebCrypto 接入。剩下这些仍在评估、尚未接入：TOML ⇄ JSON（已由 NewKit 批次接入）、ROT13 / Punycode / ASCII 码表、色盲模拟、Tailwind 色板、SemVer 解析、许可证 / README / Meta 生成、EXIF 读取、罗马数字、JSON 表格互转（JSON Schema 校验已由 NewKit 批次单独接入）、HTTP 状态码 / MIME / 端口速查。
 
 ## 关于 NewKit（newkit.site）的功能对照
 
@@ -502,7 +521,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 会议时间协调器 | 办公文档 | 按 UTC 日期把 0–23 点换算到多个 IANA 时区，按各人工作时段寻找全员重叠；没有重叠时给出最大重合 |
 | 在线白板 | 休闲娱乐 | Canvas 画笔、橡皮、颜色、粗细、撤销、清空与导出 PNG；内部画布 1600×900，响应式缩放 |
 
-**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / SSL / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、AES / RSA 等重型密码学，以及与现有 226 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
+**没接的**：视频 / 音频媒体工具（需要 ffmpeg 或服务端重编码）、IP / DNS / WHOIS / 网速 / 短链（依赖第三方接口或服务端）、AI 类（需要模型 Key 与计费）、代码运行器 / API Mock / 在线协作（需要沙箱或后端）、PDF → PPT / Word → PDF / PDF 加密（依赖重型引擎或密码学参数）、国密 SM2 / SM4（需要额外算法库与测试向量），以及与现有 230 个重复的格式化 / 转换 / 二维码 / PDF / 图片压缩工具。前两批已接入 12 个；第三批接入截图美化、社媒尺寸裁剪、图片滤镜、HTTP 状态码 / MIME / 端口速查、密码强度检测、复利计算器；第四批接入数据透视表、Docker Compose、Nginx、文字云、浏览器文本朗读、Markdown 思维导图；第五批接入 JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、投资分析计算器；第六批接入 HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、社交媒体尺寸指南、ASCII Art 文字；第七批接入 CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、科学计算器、发票税率换算器；第八批接入 Crontab 生成器、CSS 变量生成器、圆角生成器、JSON → CSV、时区转换器、矩阵计算器；第九批接入统计计算器、方程求解器、MAC 地址生成器、Properties ⇄ YAML、年度日历进度、骰子模拟器；第十批接入质数判断与因数分解、配色方案生成器、CSS 动画生成器、代码片段管理器、会议时间协调器、在线白板；第 230 版接入 RSA / ECC、AES、证书 / CSR 与 Linux 命令速查。更多纯静态的格式化、转换与视觉类工具可按同样标准继续接入。
 
 ## 关于 Toolwa（工具哇）镜像的功能对照
 
