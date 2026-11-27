@@ -640,11 +640,18 @@
 
   /* ---------------------------------------------------------- 7. HTTP 请求片段 */
   TB.def({
-    slug: 'http-snippet', cat: 'web', name: '请求片段生成', desc: 'curl / fetch / Python', icon: '📡',
-    kw: 'http 请求 curl fetch axios python 代码 片段 接口',
+    slug: 'http-snippet', cat: 'web', name: '请求片段生成', desc: 'curl / fetch / Python / cURL 解析', icon: '📡',
+    kw: 'http 请求 curl fetch axios python 代码 片段 接口 解析 粘贴',
     render: function (ctx) {
       var root = ctx.root;
       root.innerHTML =
+        '<div class="panel">' +
+          '<div class="panel-h">粘贴 cURL <span class="hint">自动识别方法、URL、请求头和请求体</span></div>' +
+          '<textarea class="textarea codeIn" id="curlIn" rows="3" spellcheck="false" placeholder="curl \'https://api.example.com/v1/items\' -H \'Content-Type: application/json\' --data-raw \'{\&quot;name\&quot;:\&quot;test\&quot;}\'"></textarea>' +
+          '<div class="btns"><button class="btn" id="curlParse" type="button">解析并填入</button>' +
+            '<button class="btn" id="curlSample" type="button">填入示例</button></div>' +
+          '<div id="curlMsg"></div>' +
+        '</div>' +
         '<div class="panel">' +
           '<div class="row2">' +
             '<div class="field"><div class="label"><b>方法</b></div><select class="input" id="method">' +
@@ -668,7 +675,7 @@
           '<div class="field" style="margin-top:14px"><div class="label"><b>代码</b></div>' +
             '<pre class="codeBox" id="out"></pre></div>' +
         '</div>' +
-        '<div class="note">把接口文档里的 curl 换成任何语言的写法。请求头、请求体原样带进去，不做格式猜测。</div>';
+        '<div class="note">把接口文档里的 curl 换成任何语言的写法。可以直接粘贴 cURL，自动填入方法、URL、请求头和请求体；支持 -X / -H / -d / --data-raw / --url / -u / -b / -A，multipart 的 -F 文件上传不解析。请求头、请求体原样带进去，不做格式猜测。</div>';
 
       var out = TB.$('#out', root);
 
@@ -680,6 +687,95 @@
         });
         return h;
       }
+
+      /* 把 cURL 命令拆成参数；支持单引号、双引号和行尾反斜杠续行 */
+      function shellTokens(text) {
+        text = String(text || '').replace(/\\\r?\n/g, ' ');
+        var tokens = [], cur = '', quote = null, esc = false;
+        for (var i = 0; i < text.length; i++) {
+          var c = text[i];
+          if (esc) { cur += c; esc = false; continue; }
+          if (quote) {
+            if (c === quote) quote = null;
+            else if (c === '\\' && quote === '"') esc = true;
+            else cur += c;
+            continue;
+          }
+          if (c === '\\') { esc = true; continue; }
+          if (c === "'" || c === '"') { quote = c; continue; }
+          if (/\s/.test(c)) {
+            if (cur) { tokens.push(cur); cur = ''; }
+          } else cur += c;
+        }
+        if (cur) tokens.push(cur);
+        return tokens;
+      }
+
+      function parseCurl(text) {
+        var tokens = shellTokens(text);
+        if (!tokens.length) throw new Error('没有可解析的 cURL 命令');
+        if (tokens[0] === 'curl' || tokens[0].endsWith('/curl')) tokens.shift();
+        var url = '', method = '', headers = [], body = '';
+        function next() { return tokens[++i] || ''; }
+        for (var i = 0; i < tokens.length; i++) {
+          var t = tokens[i], v;
+          if (t === '-X' || t === '--request') { method = next().toUpperCase(); continue; }
+          if (t === '-H' || t === '--header') { v = next(); if (v) headers.push(v); continue; }
+          if (t === '--url') { url = next(); continue; }
+          if (t === '-d' || t === '--data' || t === '--data-raw' || t === '--data-binary' || t === '--data-ascii') {
+            v = next(); if (v) body += (body ? '&' : '') + v; continue;
+          }
+          if (t === '--data-urlencode') {
+            v = next(); if (v) body += (body ? '&' : '') + encodeURIComponent(v); continue;
+          }
+          if (t === '-u' || t === '--user') {
+            v = next(); if (v) headers.push('Authorization: Basic ' + btoa(unescape(encodeURIComponent(v)))); continue;
+          }
+          if (t === '-b' || t === '--cookie') { v = next(); if (v) headers.push('Cookie: ' + v); continue; }
+          if (t === '-A' || t === '--user-agent') { v = next(); if (v) headers.push('User-Agent: ' + v); continue; }
+          if (t === '--compressed' || t === '-L' || t === '--location' || t === '-s' || t === '--silent' || t === '-k' || t === '--insecure') continue;
+          if (t.indexOf('--header=') === 0) { headers.push(t.slice(9)); continue; }
+          if (t.indexOf('--data-raw=') === 0) { body += (body ? '&' : '') + t.slice(11); continue; }
+          if (t.indexOf('--data=') === 0) { body += (body ? '&' : '') + t.slice(7); continue; }
+          if (t.indexOf('--url=') === 0) { url = t.slice(6); continue; }
+          if (t.indexOf('--user=') === 0) { headers.push('Authorization: Basic ' + btoa(unescape(encodeURIComponent(t.slice(7))))); continue; }
+          if (t.indexOf('-X') === 0 && t.length > 2) { method = t.slice(2).toUpperCase(); continue; }
+          if (t.indexOf('-H') === 0 && t.length > 2) { headers.push(t.slice(2)); continue; }
+          if (t.indexOf('-d') === 0 && t.length > 2) { body += (body ? '&' : '') + t.slice(2); continue; }
+          if (t.charAt(0) === '-') continue;
+          if (!url) url = t;
+        }
+        if (!url) throw new Error('未识别到 URL，请确认命令里有 https://…');
+        if (!method) method = body ? 'POST' : 'GET';
+        return { method: method, url: url, headers: headers.join('\n'), body: body };
+      }
+
+      var curlIn = TB.$('#curlIn', root), curlMsg = TB.$('#curlMsg', root);
+      function curlStatus(text, isErr) {
+        curlMsg.innerHTML = text ? '<div class="' + (isErr ? 'result-err' : 'note') + '" style="margin-top:10px">' + TB.esc(text) + '</div>' : '';
+      }
+      TB.$('#curlParse', root).addEventListener('click', function () {
+        try {
+          var data = parseCurl(curlIn.value);
+          var sel = TB.$('#method', root);
+          if (!Array.prototype.some.call(sel.options, function (o) { return o.value === data.method; })) {
+            var opt = document.createElement('option');
+            opt.value = data.method; opt.textContent = data.method; sel.appendChild(opt);
+          }
+          sel.value = data.method;
+          TB.$('#url', root).value = data.url;
+          TB.$('#headers', root).value = data.headers;
+          TB.$('#body', root).value = data.body;
+          run();
+          curlStatus('已解析：' + data.method + ' ' + data.url + '，' + (data.headers ? data.headers.split('\n').length : 0) + ' 个请求头', false);
+        } catch (e) {
+          curlStatus('解析失败：' + (e && e.message ? e.message : '命令格式不完整'), true);
+        }
+      });
+      TB.$('#curlSample', root).addEventListener('click', function () {
+        curlIn.value = "curl 'https://api.example.com/v1/items' -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer token' --data-raw '{\"name\":\"test\",\"page\":1}'";
+        curlStatus('示例已填入，点“解析并填入”试试', false);
+      });
       function q(s) { return "'" + String(s).replace(/'/g, "'\\''") + "'"; }
       function jq(s) { return JSON.stringify(String(s)); }
 

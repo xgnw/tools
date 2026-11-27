@@ -56,10 +56,10 @@
 | 办公文档 | 42 | PDF 合并 / 拆分 / 页面管理 / 压缩 / 尺寸调整 / 加水印 / 加页码 / 转图片、图片转 PDF、PDF 镜像翻转 / 页面裁剪、PDF 签名、PDF 表单填写、PDF 转长图、Word 批量替换 / 清理痕迹 / 公文排版、Word 转 Excel、PDF 转 Markdown / PDF 转 Word、CSV ⇄ Excel、CSV → SQL、JSON 转 Excel、HTML 表格转 Excel、表格合并 / 拆分、Excel 转 Word、Excel 比对、批量重命名、ZIP 压缩 / 解压、虚拟键盘、轻量文本编辑器、智能待办清单、数据透视表生成器、浏览器文本朗读、会议时间协调器、PDF 扫描件效果、在线提词器、PPT 演示文稿生成器、Word 文档预览、办公速查、课堂名单、课程表生成器 |
 | 图片处理 | 31 | 图片转换压缩、图片拼接、九宫格、加水印、图片转 Base64、SVG 转 PNG、占位图、印章生成、二维码美化（背景 / Logo）、二维码识别、收款码三合一、图片裁剪 / 旋转、随机色头像、微信名片生成器、图片取色器、证件照尺寸修改、四点透视矫正、图片颜色替换、Favicon 生成器、截图美化、社媒尺寸裁剪、图片滤镜、文字云生成器、社交媒体尺寸指南、图片 EXIF 信息查看、圆角图片生成、图片去白边、图片 / 扫描 PDF OCR、头像挂件生成器、图片像素化 / 马赛克、图片 CSS 裁剪 |
 | 文档创作 | 12 | Markdown 预览、Markdown 表格生成器、组织架构图、甘特图、座位牌、简繁转换、歌词转字幕、拼音转换、字帖生成、Markdown 思维导图、Mermaid 图表、中文排版助手 |
-| 站长工具 | 105 | 编码转换、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试、RSA / ECC 密钥工具、AES 加密解密、证书与 CSR 工具、Linux 命令速查、国密 SM2 工具、IPv6 地址计算、文件 ⇄ Base64、OpenAPI / Swagger 查看器、Sitemap 生成器、vCard 二维码、SQL 建表转实体类、XPath 测试器、字体 CSS 样式生成器 |
+| 站长工具 | 105 | 编码转换（含 Gzip / Deflate）、时间戳、JSON 格式化、正则测试、Cron 解析、命名转换、颜色转换、文本工具、二维码（含批量）、WiFi 二维码、文本 Diff、.gitignore、robots.txt、TOTP、IP 子网、哈希、SEO 分享预览、SEO 套件、浏览器与设备、JWT 解析、YAML ⇄ JSON、TOML ⇄ JSON、SQL 格式化、条码生成、CRC 校验、请求片段生成（含 cURL 解析）、XML 格式化、HMAC 签名、JSON 转类型、JSONPath 查询、CSS 生成器、CSS Grid / Flexbox 生成器、Git / Docker 命令生成器、对比度检测、ID 生成、假数据生成、文本相似度、酷炫文字生成、特殊符号大全、超级书签、网页可视化编辑、屏幕检测、屏幕常亮、键盘键码、新拟态生成、毛玻璃生成、SVG 海浪、SVG 压缩、JSON 扁平化 ⇄ 反扁平化、JSON ⇄ SQL、JSON Schema 构建器、HTTP 状态码 / MIME / 端口速查、密码强度检测、Docker Compose 配置生成器、Nginx 配置生成器、JSON → Zod Schema、Chmod 计算器、关键词密度分析器、JSON-LD 结构化数据生成器、UTM 参数生成器、HTTP Headers 分析、GraphQL 格式化、HTML → Markdown、JSON 树形可视化、ASCII Art 文字、CSS 美化 / 压缩、UUID 解析器、YAML 可视化查看器、Git Commit 生成器、Crontab 生成器、CSS 变量生成器、圆角生成器、MAC 地址生成器、配色方案生成器、CSS 动画生成器、代码片段管理器、CSS 虚线边框生成器、HTML 代码格式化、JavaScript 代码格式化、正则表达式可视化、URL 解析拆分、链接批量生成器、Punycode 编解码、文件夹目录树生成、摄像头测试、麦克风测试、键盘测试、鼠标测试、游戏手柄测试、屏幕刷新率与帧率测试、GPU 图形性能测试、扬声器 / 耳机测试、RSA / ECC 密钥工具、AES 加密解密、证书与 CSR 工具、Linux 命令速查、国密 SM2 工具、IPv6 地址计算、文件 ⇄ Base64、OpenAPI / Swagger 查看器、Sitemap 生成器、vCard 二维码、SQL 建表转实体类、XPath 测试器、字体 CSS 样式生成器 |
 | 数据驿站 | 30 | 房贷、个税、折扣 / 百分比、单位换算、算钱神器、身份证解析、精确小数计算、汇率换算、进制转换、屏幕量尺、数字转大写、法定退休年龄计算器、数据脱敏、银行卡校验、复利计算器、投资分析计算器、科学计算器、发票税率换算器、JSON → CSV、时区转换器、矩阵计算器、统计计算器、方程求解器、Properties ⇄ YAML、质数判断与因数分解、硬盘整数分区计算、图表生成器、SQLite 查询器、元素周期表、屏幕参数计算 |
 | AI 工具集 | 6 | 28 条中文提示词、Token 估算、提示词模板填充、系统提示词生成、AI 绘图提示词、模型成本估算 |
-| 休闲娱乐 | 26 | 随机数、UUID / 密码、日期差、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码、年度日历进度、骰子模拟器、在线白板、在线钢琴、打字速度测试 |
+| 休闲娱乐 | 26 | 随机数、UUID / 密码、日期差（含保质期）、BMI、年龄星座生肖、世界时钟、桌面时钟、今天吃什么、番茄钟、万年历、24 点计算、五子棋、迷宫寻路、轮盘抽选、记分板、在线秒表、倒计时器、手机跑马灯、掷筊、亲戚称谓计算器、摩斯密码、年度日历进度、骰子模拟器、在线白板、在线钢琴、打字速度测试 |
 
 ## 第 252 版新增的 6 个工具
 
@@ -75,6 +75,14 @@
 | 打字速度测试 | 休闲娱乐 | `typingtest.js` | 0 依赖 | 自定义练习文本，30 / 60 / 120 秒或不限时；逐字高亮对错，统计时间、字 / 分、正确率与进度。输入内容不保存，刷新即清空 |
 
 新增 6 个脚本合计约 66 KB（未压缩）。工具数从 246 增至 252，分类为 `office 42 / image 31 / doc 12 / web 105 / data 30 / ai 6 / fun 26`。首页脚本、`app.css`、`README.md` 已同步到 252 版，旧版工具脚本继续保留原版本号。
+
+同版还把 3 个候选并入现有工具，不单独占工具数：
+
+| 现有工具 | 本次增强 | 能力与边界 |
+|---|---|---|
+| 日期差计算 | 新增「保质期计算」面板 | 生产日期 + 保质期（天 / 个月 / 年）→ 到期日、距今天数、剩余或过期状态；按月 / 年顺延时遇到月底会自动收窄到目标月最后一天 |
+| 编码转换 | 新增 Gzip / Deflate 两种方式 | 使用浏览器原生 `CompressionStream`，压缩结果以 Base64 输出，解码时粘贴 Base64；不做流式大文件、ZIP 打包或密码加密 |
+| 请求片段生成 | 新增「粘贴 cURL」回填 | 解析 `-X` / `-H` / `-d` / `--data-raw` / `--url` / `-u` / `-b` / `-A`，自动填入方法、URL、请求头和请求体；multipart 的 `-F` 文件上传不解析 |
 
 ## 第 246 版新增的 6 个工具
 
@@ -457,7 +465,7 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 - **CRC 校验**固定四个标准参数（CRC32/IEEE、CRC16/MODBUS、CRC16/CCITT-FALSE、CRC8），不提供自定义多项式。
 - **歌词转字幕**只认 `[mm:ss.xx]` 时间标签，纯文本歌词没有时间轴就转不了；每条时长取「到下一句为止」和「设定值」的较小者。
 - **进制转换**整数用 BigInt 精确计算，小数按目标进制逐位展开、最多保留 12 位（二进制除不尽会有舍入）。
-- **请求片段生成**只输出 curl / fetch / Python requests / axios / Go 五种写法，不做签名、鉴权或环境变量替换。
+- **请求片段生成**只输出 curl / fetch / Python requests / axios / Go 五种写法，不做签名、鉴权或环境变量替换；可以直接粘贴常见 cURL 命令回填表单，但 multipart 的 `-F` 文件上传不解析。
 - **XML 格式化**用浏览器自带解析器，只调整标签之间的空白、不重排文本内容；压缩会删掉纯空白的文本节点，注释与 CDATA 原样保留。
 - **HMAC 签名**走 WebCrypto，只支持 SHA-1 / 256 / 384 / 512 四种摘要，不做密钥派生（PBKDF2 / scrypt）与分块计算。
 - **JSON 转类型**是「从样例推断」：同一字段在不同对象里类型不一致会输出联合类型，Go 侧的 `interface{}` 与 Python 的 `Any` 都不做运行时校验。
@@ -518,10 +526,10 @@ Chrome / Edge / Firefox / Safari 最近两年版本。依赖 WebCrypto（哈希�
 | 条码生成 | JsBarcode 本地化，6 种格式 + PNG 导出 |
 | CRC 校验 | CRC32 / CRC16-MODBUS / CRC16-CCITT / CRC8 |
 | 歌词转字幕 | LRC → SRT / WebVTT，多标签与 offset |
-| 请求片段生成 | curl / fetch / Python / axios / Go |
+| 请求片段生成 | curl / fetch / Python / axios / Go；支持粘贴 cURL 回填 |
 | 进制转换 | BigInt 任意 2–36 进制，负数与 `0x` 前缀 |
 
-**没接的**：DES / 3DES / RC4 / SM4 / bcrypt（这些算法要么已被淘汰，要么需要额外的国密库与测试向量；做浅了容易让人误用不安全参数）、WebSocket 调试（必须有服务端配合，静态站只能当摆设）、gzip 压缩（与已有的 ZIP 打包功能重叠）、ARM 指令转机器码（受众极窄），以及更复杂的 IP 规划（本站已有「IP 子网」「IPv6 地址计算」）、URL 解析、表单序列化、变量名转换（本站已有「编码转换」「命名转换」覆盖同类需求）。拼音转换已接入本地 pinyin-pro（325KB，MIT），支持声调、数字声调与首字母；多音字按常用读音。AES、RSA / ECC 与证书 / CSR 已在第 230 版按 WebCrypto 和 `@peculiar/x509` 的正确参数范围单独接入，不使用本轮 Ctool 的重型打包文件；SM2 在第 234 版用 MIT 的 `sm-crypto` 单独接入；IPv6 在第 240 版用原生 BigInt 接入。
+**没接的**：DES / 3DES / RC4 / SM4 / bcrypt（这些算法要么已被淘汰，要么需要额外的国密库与测试向量；做浅了容易让人误用不安全参数）、WebSocket 调试（必须有服务端配合，静态站只能当摆设）、ARM 指令转机器码（受众极窄），以及更复杂的 IP 规划（本站已有「IP 子网」「IPv6 地址计算」）、URL 解析、表单序列化、变量名转换（本站已有「编码转换」「命名转换」覆盖同类需求）。拼音转换已接入本地 pinyin-pro（325KB，MIT），支持声调、数字声调与首字母；多音字按常用读音。AES、RSA / ECC 与证书 / CSR 已在第 230 版按 WebCrypto 和 `@peculiar/x509` 的正确参数范围单独接入，不使用本轮 Ctool 的重型打包文件；SM2 在第 234 版用 MIT 的 `sm-crypto` 单独接入；IPv6 在第 240 版用原生 BigInt 接入。
 
 ## 关于 IT Toolbox 的功能对照
 

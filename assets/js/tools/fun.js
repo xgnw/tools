@@ -194,8 +194,8 @@
 
   /* ------------------------------------------------------------ 3. 日期差 */
   TB.def({
-    slug: 'date-diff', cat: 'fun', name: '日期差计算', desc: '天数 / 工作日', icon: '📆',
-    kw: '日期 相差 天数 工作日 到期 倒计时',
+    slug: 'date-diff', cat: 'fun', name: '日期差计算', desc: '天数 / 工作日 / 保质期', icon: '📆',
+    kw: '日期 相差 天数 工作日 到期 倒计时 保质期 生产日期',
     render: function (ctx) {
       var root = ctx.root;
       var today = new Date();
@@ -215,7 +215,16 @@
           '</div>' +
           '<div class="kv" id="out2" style="margin-top:12px"></div>' +
         '</div>' +
-        '<div class="note">工作日按周一到周五计算，未排除法定节假日与调休。跨越时区的日期差按本地日历日计算。</div>';
+        '<div class="panel"><div class="panel-h">保质期计算</div>' +
+          '<div class="row">' +
+            '<div class="field"><div class="label">生产日期</div><input class="input" id="pd" type="date" value="' + iso + '"></div>' +
+            '<div class="field"><div class="label">保质期</div><input class="input" id="shelf" type="number" min="0" step="1" value="180"></div>' +
+            '<div class="field"><div class="label">单位</div><select class="select" id="shelfUnit">' +
+              '<option value="day">天</option><option value="month">个月</option><option value="year">年</option></select></div>' +
+          '</div>' +
+          '<div class="kv" id="out3" style="margin-top:12px"></div>' +
+        '</div>' +
+        '<div class="note">工作日按周一到周五计算，未排除法定节假日与调休。保质期按月 / 年计算时，遇到 29 / 30 / 31 日会自动落到目标月份的最后一天。</div>';
 
       function parse(el) {
         if (!el.value) return null;
@@ -271,9 +280,38 @@
         }).join('');
       }
 
-      root.addEventListener('change', function () { calc2(); calcShift(); });
-      root.addEventListener('input', TB.debounce(function () { calc2(); calcShift(); }, 300));
-      calc2(); calcShift();
+      function calcShelf() {
+        var start = parse(TB.$('#pd', root));
+        var n = parseInt(TB.$('#shelf', root).value, 10);
+        var unit = TB.$('#shelfUnit', root).value;
+        if (!start || !isFinite(n) || n < 0) { TB.$('#out3', root).innerHTML = ''; return; }
+        var expiry = new Date(start);
+        if (unit === 'day') expiry.setDate(expiry.getDate() + n);
+        else {
+          /* 月 / 年按日历顺延，月底自动收窄，避免 1 月 31 日 + 1 个月变成 3 月 3 日 */
+          var months = unit === 'year' ? n * 12 : n;
+          var day = expiry.getDate();
+          expiry.setDate(1);
+          expiry.setMonth(expiry.getMonth() + months);
+          var last = new Date(expiry.getFullYear(), expiry.getMonth() + 1, 0).getDate();
+          expiry.setDate(Math.min(day, last));
+        }
+        var today0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        var remain = daysBetween(today0, expiry);
+        var stateText = remain > 0 ? '剩余 ' + remain + ' 天' : remain === 0 ? '今天到期' : '已过期 ' + (-remain) + ' 天';
+        TB.$('#out3', root).innerHTML = [
+          ['生产日期', fmtDate(start)],
+          ['到期日期', fmtDate(expiry)],
+          ['距今天数', (remain > 0 ? '还有 ' : remain < 0 ? '已过 ' : '') + Math.abs(remain) + ' 天'],
+          ['状态', stateText]
+        ].map(function (r) {
+          return '<div class="kv-item"><div class="kv-k">' + r[0] + '</div><div class="kv-v">' + r[1] + '</div></div>';
+        }).join('');
+      }
+
+      root.addEventListener('change', function () { calc2(); calcShift(); calcShelf(); });
+      root.addEventListener('input', TB.debounce(function () { calc2(); calcShift(); calcShelf(); }, 300));
+      calc2(); calcShift(); calcShelf();
     }
   });
 

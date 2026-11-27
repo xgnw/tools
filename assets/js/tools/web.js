@@ -20,7 +20,9 @@
     { id: 'url', name: 'URL 编码' },
     { id: 'hex', name: 'Hex（十六进制）' },
     { id: 'html', name: 'HTML 实体' },
-    { id: 'unicode', name: 'Unicode 转义' }
+    { id: 'unicode', name: 'Unicode 转义' },
+    { id: 'gzip', name: 'Gzip（Base64）' },
+    { id: 'deflate', name: 'Deflate（Base64）' }
   ];
 
   function utf8B64Encode(s) { return btoa(unescape(encodeURIComponent(s))); }
@@ -65,9 +67,32 @@
       .replace(/\\x([0-9a-fA-F]{2})/g, function (m, h) { return String.fromCharCode(parseInt(h, 16)); });
   }
 
+  /* Gzip / Deflate 使用浏览器原生 CompressionStream，二进制结果统一转成 Base64 显示 */
+  function bytesToB64(bytes) {
+    var arr = new Uint8Array(bytes), bin = '';
+    for (var i = 0; i < arr.length; i += 32768) {
+      bin += String.fromCharCode.apply(null, arr.subarray(i, i + 32768));
+    }
+    return btoa(bin);
+  }
+
+  function b64ToBytes(s) {
+    var bin = atob(String(s).replace(/\s/g, ''));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+
+  async function codecStream(bytes, format, decompress) {
+    var Ctor = decompress ? window.DecompressionStream : window.CompressionStream;
+    if (!Ctor) throw new Error('当前浏览器不支持 CompressionStream / DecompressionStream');
+    var stream = new Blob([bytes]).stream().pipeThrough(new Ctor(format));
+    return new Uint8Array(await new Response(stream).arrayBuffer());
+  }
+
   TB.def({
-    slug: 'codec', cat: 'web', name: '编码转换', desc: 'Base64 / URL / Hex', icon: '🔤',
-    kw: 'base64 urlencode 编码 解码 hex 实体 unicode',
+    slug: 'codec', cat: 'web', name: '编码转换', desc: 'Base64 / URL / Hex / Gzip', icon: '🔤',
+    kw: 'base64 urlencode 编码 解码 hex 实体 unicode gzip deflate 压缩 解压',
     render: function (ctx) {
       var root = ctx.root;
       root.innerHTML =
@@ -88,11 +113,11 @@
           '<div class="out" id="outBox" hidden><div class="out-h"><span class="grow">输出</span><span id="len"></span></div>' +
             '<div class="out-b" id="out"></div></div>' +
         '</div>' +
-        '<div class="note">中文走 UTF-8 处理，不会出现乱码。URL 编码采用 encodeURIComponent（会编码 / ? &amp; 等符号）。</div>';
+        '<div class="note">中文走 UTF-8 处理，不会出现乱码。URL 编码采用 encodeURIComponent（会编码 / ? &amp; 等符号）。Gzip / Deflate 使用浏览器原生 CompressionStream：编码输出 Base64，解码时也粘贴 Base64。</div>';
 
       var inp = TB.$('#in', root), outEl = TB.$('#out', root), box = TB.$('#outBox', root), msg = TB.$('#msg', root);
 
-      function convert() {
+      async function convert() {
         var type = TB.$('#type', root).value;
         var dir = TB.$('#dir', root).value;
         var text = inp.value;
@@ -103,13 +128,23 @@
           else if (type === 'hex') out = dir === 'enc' ? hexEncode(text) : hexDecode(text);
           else if (type === 'html') out = dir === 'enc' ? htmlEncode(text) : htmlDecode(text);
           else if (type === 'unicode') out = dir === 'enc' ? unicodeEncode(text) : unicodeDecode(text);
+          else if (type === 'gzip' || type === 'deflate') {
+            if (dir === 'enc') {
+              var packed = await codecStream(new TextEncoder().encode(text), type, false);
+              out = bytesToB64(packed);
+            } else {
+              var raw = await codecStream(b64ToBytes(text), type, true);
+              out = new TextDecoder().decode(raw);
+            }
+          }
 
           box.hidden = false;
           outEl.textContent = out;
           TB.$('#len', root).textContent = out.length + ' 字符';
           status(msg, '');
         } catch (e) {
-          status(msg, '转换失败：输入可能不是合法的 ' + (CODECS.find(function (c) { return c.id === type; }) || {}).name, true);
+          var label = (CODECS.find(function (c) { return c.id === type; }) || {}).name || type;
+          status(msg, '转换失败：' + (e && e.message ? e.message : '输入可能不是合法的 ' + label), true);
         }
       }
 
