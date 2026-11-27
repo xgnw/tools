@@ -3240,7 +3240,71 @@ input[type="color"]::-moz-color-swatch { border: none; border-radius: 6px; }
 .ms-preview { margin-top: 14px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-3); overflow: auto; }
 .ms-canvas { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 7px; touch-action: none; cursor: crosshair; background-color: #f6f8fb; background-image: linear-gradient(45deg, #e9eef6 25%, transparent 25%), linear-gradient(-45deg, #e9eef6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e9eef6 75%), linear-gradient(-45deg, transparent 75%, #e9eef6 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
 
+/* ---------- 252：SQL 建表转实体类 ---------- */
+.se-src { min-height: 230px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.65; }
+.se-check { display: inline-flex; align-items: center; gap: 7px; height: 38px; color: var(--ink-2); font-size: 12.5px; cursor: pointer; user-select: none; }
+.se-code { min-height: 260px; max-height: 560px; }
+.se-note { margin-top: 10px; padding: 8px 12px; }
+
+/* ---------- 252：XPath 测试器 ---------- */
+.xp-src { min-height: 230px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.65; }
+.xp-expr { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.xp-dim { color: var(--ink-3); font-size: 11.5px; font-weight: 400; }
+.xp-code { min-height: 220px; max-height: 520px; }
+.xp-note { margin-top: 10px; padding: 8px 12px; }
+
+/* ---------- 252：PDF 转长图 ---------- */
+.pl-readonly { display: flex; align-items: center; height: 38px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink-3); font-size: 12px; background: var(--surface-2); }
+.pl-dim { color: var(--ink-3); font-size: 11.5px; font-weight: 400; }
+.pl-preview { margin-top: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-3); text-align: center; overflow: auto; max-height: 640px; }
+.pl-preview img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 6px; background: #fff; box-shadow: 0 8px 24px rgba(20, 40, 80, .08); }
+.pl-note { margin-top: 10px; padding: 8px 12px; }
+
+/* ---------- 252：图片 CSS 裁剪 ---------- */
+.cp-info { margin-top: 10px; color: var(--ink-2); font-size: 12.5px; }
+.cp-info b { color: var(--ink); }
+.cp-mode { margin-bottom: 10px; }
+.cp-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.cp-tip { color: var(--ink-3); font-size: 11.5px; }
+.cp-slider { flex: 1 1 220px; margin-bottom: 0; }
+.cp-stage { margin-top: 14px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-3); overflow: auto; text-align: center; }
+.cp-canvas { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 7px; touch-action: none; cursor: crosshair;
+  background-color: #f6f8fb;
+  background-image: linear-gradient(45deg, #e9eef6 25%, transparent 25%), linear-gradient(-45deg, #e9eef6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e9eef6 75%), linear-gradient(-45deg, transparent 75%, #e9eef6 75%);
+  background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+.cp-css { min-height: 120px; }
+.cp-note { margin-top: 10px; padding: 8px 12px; }
+
+/* ---------- 252：字体 CSS 样式生成器 ---------- */
+.fc-text { min-height: 78px; font-size: 13px; line-height: 1.7; }
+.fc-preview { min-height: 180px; padding: 28px 30px; border: 1px solid var(--line); border-radius: 12px; background: #fff; white-space: pre-line; word-break: break-word; overflow-wrap: anywhere; }
+.fc-css { min-height: 160px; }
+.fc-note { margin-top: 10px; padding: 8px 12px; }
+
+/* ---------- 252：打字速度测试 ---------- */
+.ty-text { min-height: 96px; font-size: 13px; line-height: 1.7; }
+.ty-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
+.ty-stats > div { padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); min-width: 0; }
+.ty-stats span { display: block; color: var(--ink-3); font-size: 11px; }
+.ty-stats b { color: var(--ink); font-size: 20px; font-weight: 700; line-height: 1.4; }
+.ty-stats i { color: var(--ink-3); font-size: 11px; font-style: normal; margin-left: 3px; }
+.ty-target { min-height: 86px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); color: var(--ink-3); font-size: 16px; line-height: 1.95; word-break: break-all; letter-spacing: .2px; }
+.ty-target span { border-radius: 2px; }
+.ty-target span.ok { color: #168a58; background: #edfbf4; }
+.ty-target span.bad { color: #cf3f3f; background: #fff0f0; text-decoration: underline wavy #e05252; }
+.ty-target span.cur { color: var(--ink); background: #eaf2ff; box-shadow: inset 0 -2px 0 #2b7fff; }
+.ty-input-wrap { margin-top: 12px; margin-bottom: 0; }
+.ty-input { min-height: 98px; font-size: 16px; line-height: 1.8; }
+.ty-input:read-only { background: var(--surface-3); cursor: not-allowed; }
+.ty-note { margin-top: 10px; padding: 8px 12px; }
+
 @media (max-width: 640px) {
+  .se-src, .xp-src { min-height: 190px; }
+  .fc-preview { padding: 20px; }
+  .ty-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ty-target { font-size: 15px; padding: 12px; }
+  .cp-tip { display: block; flex-basis: 100%; }
+  .pl-preview { max-height: 480px; }
   .oa-toolbar { align-items: stretch; }
   .oa-count { padding-bottom: 0; }
   .pf-field { grid-template-columns: 1fr; gap: 5px; }
